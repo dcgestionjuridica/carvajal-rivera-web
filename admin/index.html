@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Panel de la página · Carvajal &amp; Rivera</title>
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ink:#0e2140; --ink2:#132a4f; --ink3:#18335e; --line:#2a4573;
+  --black:#0a0c10; --black2:#13161c;
+  --gold:#c9a24d; --gold2:#e6c67f; --olive:#6b7b3a; --olive2:#9aab5c;
+  --fg:#eef2f8; --mut:#a9b6cc; --warn:#e0a84a; --bad:#d9705f;
+  --f-head:"Outfit",system-ui,sans-serif; --f-body:"Figtree",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{margin:0;background:var(--ink);color:var(--fg);font:15px/1.55 var(--f-body)}
+[hidden]{display:none!important}
+h1,h2,h3{font-family:var(--f-head);text-wrap:balance;margin:0}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+a{color:var(--gold2)}
+
+#login{min-height:100vh;display:grid;place-items:center;padding:40px max(16px,env(safe-area-inset-left,0px));
+  background:radial-gradient(900px 500px at 80% -10%,var(--ink3),transparent 60%),var(--ink)}
+.card{width:100%;max-width:400px;background:var(--black2);border:1px solid var(--line);border-radius:12px;padding:32px 28px;display:grid;gap:18px}
+.marca{display:flex;align-items:center;gap:12px}
+.logo{flex:none;font:600 30px/1 var(--f-head);color:var(--gold2);letter-spacing:1px}
+.marca b{font:600 17px var(--f-head);display:block}
+.marca small{color:var(--mut);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+label{display:grid;gap:6px;font-size:13px;color:var(--mut)}
+.in{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 12px;color:var(--fg);font-size:14.5px}
+.in:focus{border-color:var(--gold);outline:none}
+.rich{min-height:42px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.rich b,.rich strong{color:var(--gold2)}
+.btn{border:0;border-radius:8px;padding:10px 16px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:14px}
+.btn:disabled{opacity:.55;cursor:wait}
+.btn-oro{background:var(--gold);color:var(--black)}
+.btn-oro:hover{background:var(--gold2)}
+.btn-lin{background:transparent;border:1px solid var(--line);color:var(--fg)}
+.btn-lin:hover{border-color:var(--gold)}
+.btn-peq{padding:6px 10px;font-size:13px}
+.btn-mal{background:transparent;border:1px solid rgba(217,112,95,.5);color:var(--bad)}
+.link{background:none;border:0;color:var(--gold2);cursor:pointer;padding:0;font-size:13.5px;text-align:left}
+.nota{font-size:12.5px;color:var(--mut);margin:0}
+.error{background:rgba(217,112,95,.14);color:#f2a597;border-radius:8px;padding:10px 12px;font-size:13.5px}
+.ok{background:rgba(154,171,92,.16);color:var(--olive2);border-radius:8px;padding:10px 12px;font-size:13.5px}
+
+#panel{min-height:100vh;display:grid;grid-template-rows:auto 1fr}
+.top{position:sticky;top:0;z-index:5;background:var(--black);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));flex-wrap:wrap}
+.top .marca{margin-right:auto}
+.top .logo{font-size:26px}
+.user{font-size:13px;color:var(--mut)}
+.cuerpo{display:grid;grid-template-columns:240px minmax(0,1fr)}
+nav{background:var(--ink2);border-right:1px solid var(--line);padding:14px 10px;display:grid;align-content:start;gap:2px;position:sticky;top:57px;max-height:calc(100vh - 57px);overflow:auto}
+nav .grupo{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);padding:12px 12px 6px}
+nav button{display:flex;justify-content:space-between;align-items:center;gap:8px;background:none;border:0;border-radius:8px;padding:8px 12px;text-align:left;cursor:pointer;color:var(--fg);font-size:14px}
+nav button:hover{background:var(--ink3)}
+nav button[aria-current="true"]{background:var(--ink);box-shadow:inset 3px 0 0 var(--gold);color:var(--gold2)}
+.pill{font:500 11px var(--f-mono);background:var(--warn);color:var(--black);border-radius:20px;padding:1px 7px}
+.punto{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+main{padding:24px clamp(16px,3vw,36px) 120px;min-width:0;display:grid;gap:20px;align-content:start}
+.cab{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.cab p{margin:4px 0 0;color:var(--mut);font-size:14px;max-width:62ch}
+.cab h2{font-size:24px}
+.bloque{background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:14px;min-width:0}
+.bloque h3{font-size:15px;font-weight:600;color:var(--gold2)}
+.campo{display:grid;gap:6px}
+.campo .et{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--mut)}
+.campo .et code{font:400 11px var(--f-mono);color:#6f80a0}
+.campo.cambiado .in{border-color:var(--gold)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.foto{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--ink);display:grid}
+.foto img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--black2);display:block}
+.foto .pie{padding:10px 12px;display:grid;gap:8px;font-size:13px}
+.foto.cambiado{border-color:var(--gold)}
+.item{border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:12px;background:var(--ink)}
+.item .fila{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.item .fila b{font-family:var(--f-head)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-weight:500;color:var(--mut);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tabla{overflow-x:auto}
+.chip{display:inline-block;font-size:12px;border-radius:20px;padding:2px 9px;font-weight:600;white-space:nowrap}
+.chip.pendiente{background:rgba(224,168,74,.16);color:var(--warn)}
+.chip.publicada{background:rgba(154,171,92,.18);color:var(--olive2)}
+.chip.rechazada{background:rgba(217,112,95,.14);color:var(--bad)}
+.acc{display:flex;gap:6px;flex-wrap:wrap}
+.estrellas{color:var(--gold2);letter-spacing:2px}
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--black);border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;justify-content:flex-end;flex-wrap:wrap;
+  padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.barra span{margin-right:auto;font-size:13px;color:var(--mut)}
+.barra span.hay{color:var(--gold2)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(80px + env(safe-area-inset-bottom,0px));z-index:9;border-radius:8px;padding:10px 16px;font-weight:600;font-size:14px;max-width:calc(100vw - 32px)}
+.toast.bien{background:var(--olive);color:#fff}
+.toast.mal{background:#8a3428;color:#fff}
+.cargando{color:var(--mut);padding:40px 0;text-align:center}
+@media (max-width:820px){
+  .cuerpo{grid-template-columns:1fr}
+  nav{display:flex;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);padding:8px;position:static;max-height:none}
+  nav .grupo{display:none}
+  nav button{white-space:nowrap}
+  .grid2{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ===================== INGRESO ===================== -->
+<section id="login">
+  <form class="card" id="fLogin" autocomplete="on">
+    <div class="marca"><div class="logo">CR</div><div><b>Carvajal &amp; Rivera</b><small>Panel de la página</small></div></div>
+    <div id="vIngreso" style="display:grid;gap:18px">
+      <div>
+        <h1 style="font-size:22px">Ingresar</h1>
+        <p class="nota" style="font-size:14px;margin-top:4px">Solo las personas autorizadas pueden entrar a editar la página.</p>
+      </div>
+      <label for="correo">Correo<input class="in" id="correo" type="email" required autocomplete="username"></label>
+      <label for="clave">Contraseña<input class="in" id="clave" type="password" required autocomplete="current-password"></label>
+      <button class="btn btn-oro" type="submit" id="bEntrar" style="justify-content:center">Entrar al panel</button>
+      <button class="link" type="button" id="olvido">¿Olvidó su contraseña? Le enviamos un enlace al correo</button>
+    </div>
+    <div id="vNueva" hidden style="display:grid;gap:18px">
+      <div>
+        <h1 style="font-size:22px">Cree su contraseña nueva</h1>
+        <p class="nota" style="font-size:14px;margin-top:4px">Use al menos 10 caracteres. Es la misma cuenta con la que entra a la app del despacho.</p>
+      </div>
+      <label for="nueva1">Contraseña nueva<input class="in" id="nueva1" type="password" minlength="10" autocomplete="new-password"></label>
+      <label for="nueva2">Repítala<input class="in" id="nueva2" type="password" minlength="10" autocomplete="new-password"></label>
+      <button class="btn btn-oro" type="button" id="bNueva" style="justify-content:center">Guardar contraseña y entrar</button>
+    </div>
+    <div id="msgLogin" hidden></div>
+    <p class="nota">La sesión se cierra sola al cerrar el navegador o tras 30 minutos sin uso.</p>
+  </form>
+</section>
+
+<!-- ===================== PANEL ===================== -->
+<section id="panel" hidden>
+  <header class="top">
+    <div class="marca"><div class="logo">CR</div><div><b>Panel de la página</b><small>Carvajal &amp; Rivera</small></div></div>
+    <span class="user" id="quien"></span>
+    <a class="btn btn-lin btn-peq" href="../" target="_blank" rel="noopener">Ver página</a>
+    <button class="btn btn-lin btn-peq" id="salir" type="button">Salir</button>
+  </header>
+  <div class="cuerpo">
+    <nav id="menu" aria-label="Secciones"></nav>
+    <main id="vista"><p class="cargando">Cargando el contenido de la página…</p></main>
+  </div>
+  <div class="barra">
+    <span id="cambios">Sin cambios</span>
+    <button class="btn btn-lin" id="descartar" type="button">Descartar</button>
+    <button class="btn btn-oro" id="guardar" type="button">Guardar y publicar</button>
+  </div>
+</section>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script>
+(function(){
+"use strict";
+const SB="https://bopiajeyzystoaumishw.supabase.co";
+const KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcGlhamV5enlzdG9hdW1pc2h3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA2OTQ5NzksImV4cCI6MjEwNjI3MDk3OX0.F4S0iiUhSYhLkE5x2cPAld75kKBcOcLrmTZGtmVs5F4";
+const BUCKET="web-carvajal-rivera";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------------- sesión (se guarda solo mientras el navegador esté abierto) ---------------- */
+let S=null;
+function leerSesion(){try{return JSON.parse(sessionStorage.getItem("cr_panel")||"null")}catch(_){return null}}
+function guardarSesion(s){S=s;try{s?sessionStorage.setItem("cr_panel",JSON.stringify(s)):sessionStorage.removeItem("cr_panel")}catch(_){}}
+async function auth(ruta,cuerpo,metodo,token){
+  const r=await fetch(SB+"/auth/v1/"+ruta,{method:metodo||"POST",headers:{apikey:KEY,"Content-Type":"application/json",...(token?{Authorization:"Bearer "+token}:{})},body:cuerpo?JSON.stringify(cuerpo):undefined});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok)throw Object.assign(new Error(j.error_description||j.msg||j.message||"error"),{codigo:j.error_code||j.error||r.status});
+  return j;
+}
+function sesionDe(j){return{token:j.access_token,refresco:j.refresh_token,vence:Date.now()+(j.expires_in||3600)*1000,correo:(j.user&&j.user.email)||""}}
+async function token(){
+  if(!S)throw new Error("sin sesión");
+  if(Date.now()>S.vence-60000){const j=await auth("token?grant_type=refresh_token",{refresh_token:S.refresco});guardarSesion({...sesionDe(j),correo:S.correo});}
+  return S.token;
+}
+async function api(ruta,op={}){
+  const t=await token();
+  const r=await fetch(SB+"/rest/v1/"+ruta,{...op,headers:{apikey:KEY,Authorization:"Bearer "+t,"Content-Type":"application/json",...(op.headers||{})}});
+  if(!r.ok){const j=await r.json().catch(()=>({}));throw new Error(j.message||("Error "+r.status));}
+  return r.status===204?null:r.json().catch(()=>null);
+}
+async function esAdmin(){const r=await api("rpc/web_es_admin",{method:"POST",body:"{}"});return r===true;}
+
+/* inactividad: 30 minutos */
+let ultimo=Date.now();["click","keydown","input","pointermove"].forEach(e=>addEventListener(e,()=>ultimo=Date.now(),{passive:true}));
+setInterval(()=>{if(S&&Date.now()-ultimo>30*60000){salir("Su sesión se cerró por 30 minutos sin uso. Vuelva a ingresar.")}},30000);
+
+function msgLogin(txt,bien){const m=$("#msgLogin");m.hidden=!txt;m.className=bien?"ok":"error";m.textContent=txt||"";}
+function traducir(e){
+  const c=String(e.codigo||""),m=String(e.message||"");
+  if(c==="invalid_credentials"||/invalid login/i.test(m))return"El correo o la contraseña no coinciden. Revíselos e intente otra vez.";
+  if(/email not confirmed/i.test(m))return"Ese correo aún no está confirmado.";
+  if(c==="over_email_send_rate_limit"||/rate limit|seconds/i.test(m))return"Ya le enviamos un correo hace poco. Espere un minuto y vuelva a intentarlo.";
+  if(/weak|password should/i.test(m))return"La contraseña es muy débil. Use al menos 10 caracteres, con letras y números.";
+  if(/failed to fetch|network/i.test(m))return"No hay conexión con el servidor. Revise su internet.";
+  return"No se pudo completar: "+m;
+}
+
+$("#fLogin").addEventListener("submit",async e=>{
+  e.preventDefault();if(!$("#vIngreso").offsetParent)return;
+  const b=$("#bEntrar");b.disabled=true;b.textContent="Entrando…";msgLogin("");
+  try{
+    const j=await auth("token?grant_type=password",{email:$("#correo").value.trim(),password:$("#clave").value});
+    guardarSesion(sesionDe(j));$("#clave").value="";
+    await entrar();
+  }catch(err){msgLogin(err.message==="sin permiso"?"Esta cuenta no tiene permiso para editar la página.":traducir(err));}
+  b.disabled=false;b.textContent="Entrar al panel";
+});
+$("#olvido").onclick=async()=>{
+  const c=$("#correo").value.trim();
+  if(!c){msgLogin("Escriba primero su correo y vuelva a tocar este enlace.");$("#correo").focus();return;}
+  try{await auth("recover?redirect_to="+encodeURIComponent(location.origin+location.pathname),{email:c});
+    msgLogin("Listo. Si el correo está autorizado, le llegará un enlace para crear una contraseña nueva. Revise también la carpeta de spam.",true);}
+  catch(err){msgLogin(traducir(err));}
+};
+$("#bNueva").onclick=async()=>{
+  const a=$("#nueva1").value,b=$("#nueva2").value;
+  if(a.length<10){msgLogin("Use al menos 10 caracteres.");return;}
+  if(a!==b){msgLogin("Las dos contraseñas no coinciden.");return;}
+  try{const u=await auth("user",{password:a},"PUT",await token());S.correo=u.email||"";guardarSesion(S);$("#nueva1").value=$("#nueva2").value="";await entrar();}
+  catch(err){msgLogin(traducir(err));}
+};
+$("#salir").onclick=()=>salir();
+async function salir(txt){
+  if(S){try{await auth("logout",null,"POST",S.token)}catch(_){}}
+  guardarSesion(null);$("#panel").hidden=true;$("#login").hidden=false;$("#vNueva").hidden=true;$("#vIngreso").hidden=false;msgLogin(txt||"",false);if(!txt)$("#msgLogin").hidden=true;
+}
+async function entrar(){
+  if(!(await esAdmin())){guardarSesion(null);throw new Error("sin permiso");}
+  $("#login").hidden=true;$("#panel").hidden=false;$("#quien").textContent=S.correo;
+  await cargar();
+}
+
+/* ---------------- contenido ---------------- */
+const GRUPOS=[
+  ["Datos generales",[["datos","Datos de contacto"]]],
+  ["Página",[["barra","Barra superior"],["menu_movil","Menú del celular"],["portada","Portada"],["atajos","Atajos de herramientas"],["nosotros","Quiénes somos y equipo"],["areas","Áreas del derecho"],["proceso","Cómo trabajamos"]]],
+  ["Herramientas",[["insolvencia","Calculadora de insolvencia"],["embargos","Calculadora de embargos"],["peticiones","Derechos de petición"],["cursos","Cursos"]]],
+  ["Clientes",[["resenas","Reseñas"],["contacto","Contacto"],["whatsapp","Chat de WhatsApp"],["modal_resena","Ventana para dejar reseña"],["pie","Pie de página"]]]
+];
+const ICONOS={ins:"Insolvencia (barras)",fam:"Familia (personas)",civ:"Civil (balanza)",lab:"Laboral (maletín)",car:"Cartera (casa)",con:"Contrato (documento)",tra:"Tránsito (carro)",adm:"Administrativo (edificio)",pen2:"Pensiones (persona)",pen:"Penal (escudo)"};
+const DATOS_CAMPOS=[
+  ["whatsapp","WhatsApp y teléfono (10 dígitos)","3146131086"],
+  ["correo","Correo que se muestra","abg.carvajalrivera@gmail.com"],
+  ["correo_formularios","Correo que recibe los formularios","abg.carvajalrivera@gmail.com"],
+  ["direccion_completa","Dirección para el mapa y el botón Copiar","Calle 29 #6B-10, barrio Taminaca 2, Santa Marta, Magdalena"],
+  ["horario","Horario (frase)","lunes a viernes, 9:00 a. m. a 5:00 p. m."],
+  ["hora_abre","Hora de apertura (0 a 23, hora de Colombia)","9"],
+  ["hora_cierra","Hora de cierre (0 a 23)","17"],
+  ["facebook","Enlace de Facebook","https://www.facebook.com/carvajalyrivera"],
+  ["instagram","Enlace de Instagram","https://www.instagram.com/abg_carvajalyrivera"],
+  ["tiktok","Enlace de TikTok (escriba - para ocultarlo)","https://www.tiktok.com/@abg_carvajalyrivera"],
+  ["youtube","Enlace de YouTube (escriba - para ocultarlo)","https://www.youtube.com/@abg_carvajalyrivera"]
+];
+let BASE={elementos:[],listas:{}};   // lo original de la página
+let GUARD={textos:{},imagenes:{},listas:{}}; // lo guardado en la base
+let EDIT=null;                         // lo que se está editando
+let actual="datos", resenas=[];
+
+function clon(o){return JSON.parse(JSON.stringify(o))}
+function literal(txt,desde){ // extrae un arreglo [ ... ] de JavaScript a partir de una posición
+  const i=txt.indexOf("[",desde);if(i<0)return null;let n=0,str=null;
+  for(let k=i;k<txt.length;k++){const c=txt[k];
+    if(str){if(c==="\\"){k++;continue}if(c===str)str=null;continue}
+    if(c==='"'||c==="'"||c==="`"){str=c;continue}
+    if(c==="[")n++;else if(c==="]"){n--;if(!n){try{return Function("return "+txt.slice(i,k+1))()}catch(_){return null}}}}
+  return null;
+}
+function tras(txt,marca){const i=txt.indexOf(marca);return i<0?null:literal(txt,i+marca.length);}
+async function leerBase(){
+  const html=await (await fetch("../index.html",{cache:"no-store"})).text();
+  const doc=new DOMParser().parseFromString(html,"text/html");
+  BASE.elementos=[...doc.querySelectorAll("[data-e]")].map(el=>({k:el.getAttribute("data-e"),img:el.tagName==="IMG",
+    v:el.tagName==="IMG"?new URL(el.getAttribute("src"),new URL("../",location.href)).href:(el.hasAttribute("data-count")?el.getAttribute("data-count")+(el.getAttribute("data-suffix")||""):el.innerHTML.trim()),
+    alt:el.getAttribute("alt")||""}));
+  const js=[...doc.querySelectorAll("script:not([src])")].map(s=>s.textContent).join("\n");
+  const m1=js.match(/mision:"<p>([\s\S]*?)<\/p>"/),m2=js.match(/vision:"<p>([\s\S]*?)<\/p>"/),sm=js.match(/\|\|(\d{6,8});\s*\/\/ salario/);
+  BASE.listas={
+    palabras:tras(js,"L.palabras:")||[],
+    mision:m1?m1[1]:"",vision:m2?m2[1]:"",
+    valores:tras(js,"valores:'<div class=\"values\">'+")||[],
+    areas:tras(js,"const areasDef=")||[],
+    smlmv:sm?+sm[1]:1750905,smlmv_anio:"2026",
+    resenas:tras(js,"const revsDef=")||[],
+    documentos:tras(js,"const docsDef=")||[],
+    temas:tras(js,"L.temas:")||[],
+    wa_saludo:"¡Hola! 👋 Somos Darío y Mileidi, de Carvajal & Rivera. ¿En qué le podemos ayudar?",
+    wa_respuestas:tras(js,"L.wa_respuestas:")||[],
+    datos:Object.fromEntries(DATOS_CAMPOS.map(c=>[c[0],c[2]]))
+  };
+}
+async function cargar(){
+  $("#vista").innerHTML='<p class="cargando">Cargando el contenido de la página…</p>';
+  try{
+    await leerBase();
+    const filas=await api("web_contenido?select=clave,valor");
+    GUARD={textos:{},imagenes:{},listas:{}};filas.forEach(f=>GUARD[f.clave]=f.valor||{});
+    resenas=await api("web_resenas?select=*&order=creado.desc");
+    nuevoBorrador();menu();mostrar(actual);
+  }catch(err){$("#vista").innerHTML=`<div class="error">No se pudo cargar el contenido: ${esc(err.message)}. Recargue la página.</div>`;}
+}
+function nuevoBorrador(){
+  EDIT={textos:clon(GUARD.textos||{}),imagenes:clon(GUARD.imagenes||{}),listas:clon(GUARD.listas||{})};
+  pintarCambios();
+}
+function lista(k){return EDIT.listas[k]!==undefined?EDIT.listas[k]:BASE.listas[k];}
+function setLista(k,v){EDIT.listas[k]=v;pintarCambios();}
+function hayCambios(){return["textos","imagenes","listas"].filter(k=>JSON.stringify(EDIT[k]||{})!==JSON.stringify(GUARD[k]||{}));}
+function pintarCambios(){const n=hayCambios().length,s=$("#cambios");s.textContent=n?"Hay cambios sin publicar":"Sin cambios";s.classList.toggle("hay",!!n);}
+addEventListener("beforeunload",e=>{if(EDIT&&hayCambios().length){e.preventDefault();e.returnValue="";}});
+
+function menu(){
+  const pend=resenas.filter(r=>r.estado==="pendiente").length;
+  $("#menu").innerHTML=GRUPOS.map(g=>`<div class="grupo">${g[0]}</div>`+g[1].map(s=>`<button type="button" data-s="${s[0]}" ${s[0]===actual?'aria-current="true"':""}><span>${s[1]}</span>${s[0]==="resenas"&&pend?`<span class="pill">${pend}</span>`:""}</button>`).join("")).join("");
+  $$("#menu button").forEach(b=>b.onclick=()=>{actual=b.dataset.s;$$("#menu button").forEach(x=>x.removeAttribute("aria-current"));b.setAttribute("aria-current","true");mostrar(actual);scrollTo(0,0);});
+}
+const titulo=k=>GRUPOS.flatMap(g=>g[1]).find(s=>s[0]===k)?.[1]||k;
+
+/* ---- texto enriquecido limitado: negrilla, cursiva, saltos de línea y enlaces ---- */
+function limpiarHTML(h){
+  const t=document.createElement("template");t.innerHTML=h;
+  (function rec(n){[...n.childNodes].forEach(c=>{
+    if(c.nodeType===3)return;
+    if(c.nodeType!==1){c.remove();return}
+    const tg=c.tagName.toLowerCase();rec(c);
+    if(["b","strong","i","em","br","q"].includes(tg)){[...c.attributes].forEach(a=>c.removeAttribute(a.name));return}
+    if(tg==="a"){const h=c.getAttribute("href")||"";[...c.attributes].forEach(a=>{if(!["href","target","rel"].includes(a.name))c.removeAttribute(a.name)});if(/^\s*javascript:/i.test(h))c.removeAttribute("href");return}
+    if(tg==="div"||tg==="p"){c.before(document.createElement("br"))}
+    c.replaceWith(...c.childNodes);
+  })})(t.content);
+  return t.innerHTML.replace(/^(<br>)+|(<br>)+$/g,"").trim();
+}
+function campoTexto(el){
+  const v=EDIT.textos[el.k]!==undefined?EDIT.textos[el.k]:el.v,cam=EDIT.textos[el.k]!==undefined&&EDIT.textos[el.k]!==el.v;
+  const largo=String(el.v).replace(/<[^>]*>/g,"").length;
+  const etiqueta=largo>70?"Párrafo":largo>30?"Frase":"Texto corto";
+  return `<div class="campo${cam?" cambiado":""}" data-k="${el.k}"><div class="et"><span>${etiqueta}</span><span>${cam?'<button type="button" class="link" data-rest="'+el.k+'">Volver al original</button>':""} <code>${el.k}</code></span></div><div class="in rich" contenteditable="true" role="textbox" aria-multiline="true" aria-label="${etiqueta} ${el.k}">${v}</div></div>`;
+}
+function campoImagen(el){
+  const v=EDIT.imagenes[el.k]||el.v,cam=!!EDIT.imagenes[el.k];
+  return `<div class="foto${cam?" cambiado":""}" data-k="${el.k}"><img src="${esc(v)}" alt="${esc(el.alt)}"><div class="pie"><b>${esc(el.alt||"Imagen")}</b><label class="btn btn-lin btn-peq" style="justify-content:center;cursor:pointer">Cambiar imagen<input type="file" accept="image/jpeg,image/png,image/webp" hidden data-subir="${el.k}"></label>${cam?`<button type="button" class="link" data-restimg="${el.k}">Volver a la original</button>`:""}</div></div>`;
+}
+function bloqueTextos(sec){
+  const els=BASE.elementos.filter(e=>e.k.replace(/_\d+$/,"")===sec);
+  const imgs=els.filter(e=>e.img),txt=els.filter(e=>!e.img);
+  let h="";
+  if(imgs.length)h+=`<div class="bloque"><h3>Imágenes</h3><p class="nota">Fotos JPG, PNG o WEBP de máximo 10 MB. Se publican tal cual, sin retoques.</p><div class="fotos">${imgs.map(campoImagen).join("")}</div></div>`;
+  if(txt.length)h+=`<div class="bloque"><h3>Textos</h3><p class="nota">Escriba directamente. Para poner algo en negrilla, selecciónelo y oprima Ctrl+B (en el celular, mantenga presionado).</p>${txt.map(campoTexto).join("")}</div>`;
+  return h;
+}
+
+/* ---- editores de listas ---- */
+function inp(id,val,ph,attrs){return `<input class="in" data-l="${id}" value="${esc(val)}" placeholder="${esc(ph||"")}" ${attrs||""}>`}
+function area(id,val,filas){return `<textarea class="in" data-l="${id}" rows="${filas||3}">${esc(val)}</textarea>`}
+function editorListas(sec){
+  const L=k=>lista(k);let h="";
+  if(sec==="datos"){
+    const d={...BASE.listas.datos,...(L("datos")||{})};
+    h+=`<div class="bloque"><h3>Datos que se usan en toda la página</h3><p class="nota">Estos datos alimentan el botón de WhatsApp, los botones de copiar, el mapa, las redes y los formularios. Los textos visibles de cada sección se cambian en su propia sección.</p><div class="grid2">${DATOS_CAMPOS.map(c=>`<label>${c[1]}${inp("datos."+c[0],d[c[0]]??"",c[2])}</label>`).join("")}</div></div>`;
+  }
+  if(sec==="portada"){
+    h+=`<div class="bloque"><h3>Palabras que cambian en el título</h3><p class="nota">Una por línea. Aparecen después de «Protegemos».</p>${area("palabras",(L("palabras")||[]).join("\n"),5)}</div>`;
+  }
+  if(sec==="nosotros"){
+    h+=`<div class="bloque"><h3>Misión, visión y valores</h3><label>Misión${area("mision",L("mision"),3)}</label><label>Visión${area("vision",L("vision"),3)}</label>
+      <label>Valores: uno por línea, con el formato «Nombre | Descripción»${area("valores",(L("valores")||[]).map(v=>v[0]+" | "+v[1]).join("\n"),6)}</label></div>`;
+  }
+  if(sec==="areas"){
+    const as=L("areas")||[];
+    h+=`<div class="bloque"><div class="fila" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><h3>Áreas (${as.length})</h3><button type="button" class="btn btn-oro btn-peq" data-acc="area+">Agregar área</button></div>
+    ${as.map((a,i)=>`<div class="item"><div class="fila"><b>${i+1}. ${esc(a[1]||"Área nueva")}</b><span class="acc"><button type="button" class="btn btn-lin btn-peq" data-acc="area^" data-i="${i}" ${i?"":"disabled"}>Subir</button><button type="button" class="btn btn-mal btn-peq" data-acc="area-" data-i="${i}">Quitar</button></span></div>
+      <div class="grid2"><label>Nombre${inp("areas."+i+".1",a[1])}</label><label>Ícono<select class="in" data-l="areas.${i}.0">${Object.entries(ICONOS).map(([k,t])=>`<option value="${k}" ${k===a[0]?"selected":""}>${t}</option>`).join("")}</select></label></div>
+      <label>Descripción${area("areas."+i+".2",a[2],3)}</label><label>Casos que atendemos (uno por línea)${area("areas."+i+".3",(a[3]||[]).join("\n"),4)}</label></div>`).join("")}</div>`;
+  }
+  if(sec==="embargos"){
+    h+=`<div class="bloque"><h3>Salario mínimo</h3><div class="grid2"><label>Salario mínimo mensual vigente (pesos)${inp("smlmv",L("smlmv"),"1750905",'inputmode="numeric" style="font-family:var(--f-mono)"')}</label><label>Año${inp("smlmv_anio",L("smlmv_anio"),"2026")}</label></div><p class="nota">La calculadora de embargos usa este valor de inmediato.</p></div>`;
+  }
+  if(sec==="resenas"){
+    const pend=resenas.filter(r=>r.estado==="pendiente");
+    h+=`<div class="bloque"><h3>Reseñas que dejaron los clientes en la página</h3><p class="nota">Una reseña nueva no aparece en la página hasta que usted la publica. Estas acciones se aplican de inmediato.</p>
+      ${resenas.length?`<div class="tabla"><table><tr><th>Cliente</th><th>Reseña</th><th>Estado</th><th></th></tr>${resenas.map(r=>`<tr><td><b>${esc(r.nombre)}</b><br><span class="nota">${esc(r.tema||"")} · ${new Date(r.creado).toLocaleDateString("es-CO",{timeZone:"America/Bogota"})}</span></td><td><span class="estrellas">${"★".repeat(r.estrellas)}${"☆".repeat(5-r.estrellas)}</span><br>${esc(r.texto)}</td><td><span class="chip ${r.estado}">${{pendiente:"Por revisar",publicada:"Publicada",rechazada:"Rechazada"}[r.estado]}</span></td><td class="acc">${r.estado!=="publicada"?`<button type="button" class="btn btn-oro btn-peq" data-res="publicada" data-id="${r.id}">Publicar</button>`:`<button type="button" class="btn btn-lin btn-peq" data-res="pendiente" data-id="${r.id}">Ocultar</button>`}${r.estado==="pendiente"?`<button type="button" class="btn btn-lin btn-peq" data-res="rechazada" data-id="${r.id}">Rechazar</button>`:""}<button type="button" class="btn btn-mal btn-peq" data-res="borrar" data-id="${r.id}">Borrar</button></td></tr>`).join("")}</table></div>`:`<p class="nota">Todavía no han llegado reseñas desde la página.</p>`}
+      ${pend.length?`<p class="nota">${pend.length} por revisar.</p>`:""}</div>`;
+    const rs=L("resenas")||[];
+    h+=`<div class="bloque"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><h3>Reseñas fijas (del sitio anterior)</h3><button type="button" class="btn btn-oro btn-peq" data-acc="res+">Agregar reseña fija</button></div><p class="nota">Solo reseñas reales de clientes.</p>
+      ${rs.map((r,i)=>`<div class="item"><div class="fila"><b>${esc(r.n||"Nueva")}</b><button type="button" class="btn btn-mal btn-peq" data-acc="res-" data-i="${i}">Quitar</button></div><div class="grid2"><label>Nombre${inp("resenas."+i+".n",r.n)}</label><label>Fecha${inp("resenas."+i+".f",r.f,"dd/mm/aaaa")}</label><label>Tema${inp("resenas."+i+".t",r.t)}</label><label>Estrellas (1 a 5)${inp("resenas."+i+".e",r.e||5,"5",'inputmode="numeric"')}</label></div><label>Opinión${area("resenas."+i+".x",r.x,3)}</label></div>`).join("")}</div>`;
+  }
+  if(sec==="peticiones"){
+    const ds=L("documentos")||[];
+    h+=`<div class="bloque"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><h3>Modelos en Word (${ds.length})</h3><label class="btn btn-oro btn-peq" style="cursor:pointer">Subir Word nuevo<input type="file" hidden accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" data-doc="nuevo"></label></div><p class="nota">Las categorías de los filtros se crean solas con lo que escriba en «Categoría».</p>
+      ${ds.map((d,i)=>`<div class="item"><div class="fila"><b>${esc(d.t||"Modelo nuevo")}</b><span class="acc"><a class="btn btn-lin btn-peq" href="${esc(/^https?:/.test(d.f)?d.f:"../documentos/"+d.f)}" target="_blank" rel="noopener">Descargar</a><label class="btn btn-lin btn-peq" style="cursor:pointer">Reemplazar Word<input type="file" hidden accept=".docx" data-doc="${i}"></label><button type="button" class="btn btn-lin btn-peq" data-acc="doc~" data-i="${i}">${d.oculto?"Mostrar":"Ocultar"}</button><button type="button" class="btn btn-mal btn-peq" data-acc="doc-" data-i="${i}">Quitar</button></span></div>
+        ${d.oculto?'<span class="chip rechazada">Oculto en la página</span>':""}
+        <div class="grid2"><label>Título${inp("documentos."+i+".t",d.t)}</label><label>Categoría${inp("documentos."+i+".c",d.c,"Salud")}</label></div><label>Descripción${area("documentos."+i+".d",d.d,2)}</label><label>Palabras para el buscador${inp("documentos."+i+".k",d.k,"eps salud cita")}</label><p class="nota" style="font-family:var(--f-mono);font-size:11.5px">${esc(String(d.f).split("/").pop())}</p></div>`).join("")}</div>`;
+  }
+  if(sec==="contacto"){
+    h+=`<div class="bloque"><h3>Temas del formulario</h3><p class="nota">Uno por línea. Son los botones de «¿Sobre qué tema es su consulta?».</p>${area("temas",(L("temas")||[]).join("\n"),6)}</div>`;
+  }
+  if(sec==="whatsapp"){
+    h+=`<div class="bloque"><h3>Conversación de bienvenida</h3><label>Saludo${area("wa_saludo",L("wa_saludo"),2)}</label><label>Respuestas rápidas: una por línea, con el formato «Botón | Mensaje que se envía»${area("wa_respuestas",(L("wa_respuestas")||[]).map(q=>q[0]+" | "+q[1]).join("\n"),5)}</label></div>`;
+  }
+  return h;
+}
+function mostrar(sec){
+  const intro={datos:"Teléfono, correo, dirección, horario y redes que usa toda la página.",resenas:"Apruebe las reseñas nuevas y edite los textos de la sección.",peticiones:"Suba, reemplace u oculte los modelos en Word de la biblioteca.",embargos:"Textos de la calculadora y el salario mínimo que usa."}[sec]||"Cambie los textos y las imágenes de esta sección.";
+  $("#vista").innerHTML=`<div class="cab"><div><h2>${titulo(sec)}</h2><p>${intro}</p></div><a class="btn btn-lin btn-peq" href="../#${{portada:"inicio",proceso:"areas",modal_resena:"resenas",whatsapp:"contacto",pie:"contacto",barra:"inicio",menu_movil:"inicio",atajos:"inicio",datos:"contacto"}[sec]||sec}" target="_blank" rel="noopener">Ver esta sección</a></div>`+editorListas(sec)+bloqueTextos(sec);
+}
+
+/* ---- eventos del editor ---- */
+const v=$("#vista");
+v.addEventListener("input",e=>{
+  const c=e.target.closest(".campo");
+  if(c&&e.target.isContentEditable){const k=c.dataset.k,base=BASE.elementos.find(x=>x.k===k).v,h=limpiarHTML(e.target.innerHTML);
+    if(h===base)delete EDIT.textos[k];else EDIT.textos[k]=h;c.classList.toggle("cambiado",h!==base);pintarCambios();return;}
+  const l=e.target.dataset.l;if(!l)return;
+  const val=e.target.value,[k,...ruta]=l.split(".");
+  if(k==="datos"){const d={...(lista("datos")||{})};d[ruta[0]]=val.trim();setLista("datos",d);return;}
+  if(["palabras","temas"].includes(k)){setLista(k,val.split("\n").map(s=>s.trim()).filter(Boolean));return;}
+  if(k==="valores"||k==="wa_respuestas"){setLista(k,val.split("\n").map(s=>s.split("|").map(x=>x.trim())).filter(p=>p[0]).map(p=>[p[0],p.slice(1).join(" | ")||""]));return;}
+  if(k==="smlmv"){setLista(k,Number(val.replace(/\D/g,""))||0);return;}
+  if(!ruta.length){setLista(k,val);return;}
+  const arr=clon(lista(k)||[]),i=+ruta[0],campo=ruta[1];
+  if(k==="areas"){arr[i][+campo]=campo==="3"?val.split("\n").map(s=>s.trim()).filter(Boolean):val;}
+  else if(k==="resenas"&&campo==="e"){arr[i].e=Math.max(1,Math.min(5,+val||5));}
+  else arr[i][campo]=val;
+  setLista(k,arr);
+  const b=e.target.closest(".item")?.querySelector(".fila b");if(b&&(campo==="1"||campo==="t"||campo==="n"))b.textContent=(k==="areas"?(i+1)+". ":"")+(val||"…");
+});
+v.addEventListener("keydown",e=>{if(e.target.isContentEditable&&e.key==="Enter"&&!e.shiftKey){e.preventDefault();document.execCommand("insertLineBreak");}});
+v.addEventListener("paste",e=>{if(e.target.closest&&e.target.closest("[contenteditable]")){e.preventDefault();document.execCommand("insertText",false,(e.clipboardData||window.clipboardData).getData("text"));}});
+v.addEventListener("click",async e=>{
+  const t=e.target.closest("button,[data-rest],[data-restimg]");if(!t)return;
+  if(t.dataset.rest){delete EDIT.textos[t.dataset.rest];pintarCambios();mostrar(actual);return;}
+  if(t.dataset.restimg){delete EDIT.imagenes[t.dataset.restimg];pintarCambios();mostrar(actual);return;}
+  const acc=t.dataset.acc,i=+t.dataset.i;
+  if(acc){
+    if(acc==="area+"){const a=clon(lista("areas"));a.push(["civ","Área nueva","",[]]);setLista("areas",a);}
+    if(acc==="area-"){if(!confirmar(t,"¿Quitar esta área?"))return;const a=clon(lista("areas"));a.splice(i,1);setLista("areas",a);}
+    if(acc==="area^"){const a=clon(lista("areas"));[a[i-1],a[i]]=[a[i],a[i-1]];setLista("areas",a);}
+    if(acc==="res+"){const a=clon(lista("resenas"));a.push({n:"",f:"",t:"",x:"",e:5});setLista("resenas",a);}
+    if(acc==="res-"){if(!confirmar(t,"¿Quitar?"))return;const a=clon(lista("resenas"));a.splice(i,1);setLista("resenas",a);}
+    if(acc==="doc~"){const a=clon(lista("documentos"));a[i].oculto=!a[i].oculto;setLista("documentos",a);}
+    if(acc==="doc-"){if(!confirmar(t,"¿Quitar este modelo?"))return;const a=clon(lista("documentos"));a.splice(i,1);setLista("documentos",a);}
+    mostrar(actual);return;
+  }
+  if(t.dataset.res){
+    const id=t.dataset.id,est=t.dataset.res;
+    if(est==="borrar"&&!confirmar(t,"¿Borrar definitivamente?"))return;
+    t.disabled=true;
+    try{
+      if(est==="borrar")await api("web_resenas?id=eq."+id,{method:"DELETE",headers:{Prefer:"return=minimal"}});
+      else await api("web_resenas?id=eq."+id,{method:"PATCH",headers:{Prefer:"return=minimal"},body:JSON.stringify({estado:est})});
+      resenas=await api("web_resenas?select=*&order=creado.desc");menu();mostrar(actual);
+      aviso(est==="publicada"?"Reseña publicada en la página":est==="borrar"?"Reseña borrada":"Listo",true);
+    }catch(err){aviso("No se pudo: "+err.message,false);t.disabled=false;}
+  }
+});
+function confirmar(b,txt){ // confirmación en el mismo botón: hay que tocarlo dos veces
+  if(b.dataset.seguro==="1")return true;
+  const orig=b.textContent;b.dataset.seguro="1";b.textContent=txt+" Toque otra vez";
+  setTimeout(()=>{b.dataset.seguro="";b.textContent=orig},3500);return false;
+}
+async function subir(archivo,carpeta){
+  const t=await token(),ext=(archivo.name.split(".").pop()||"bin").toLowerCase().replace(/[^a-z0-9]/g,"");
+  const base=archivo.name.replace(/\.[^.]+$/,"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"_").slice(0,50)||"archivo";
+  const ruta=`${carpeta}/${base}_${Date.now()}.${ext}`;
+  const r=await fetch(`${SB}/storage/v1/object/${BUCKET}/${ruta}`,{method:"POST",headers:{apikey:KEY,Authorization:"Bearer "+t,"Content-Type":archivo.type||"application/octet-stream","x-upsert":"false","cache-control":"31536000"},body:archivo});
+  if(!r.ok){const j=await r.json().catch(()=>({}));throw new Error(j.message||j.error||("Error "+r.status));}
+  return `${SB}/storage/v1/object/public/${BUCKET}/${ruta}`;
+}
+v.addEventListener("change",async e=>{
+  const f=e.target.files&&e.target.files[0];if(!f)return;
+  if(f.size>10*1024*1024){aviso("El archivo pesa más de 10 MB. Use uno más liviano.",false);e.target.value="";return;}
+  try{
+    if(e.target.dataset.subir){aviso("Subiendo imagen…",true);const url=await subir(f,"imagenes");EDIT.imagenes[e.target.dataset.subir]=url;pintarCambios();mostrar(actual);aviso("Imagen lista. Oprima «Guardar y publicar» para que salga en la página.",true);}
+    if(e.target.dataset.doc){
+      if(!/\.docx$/i.test(f.name)){aviso("Solo se aceptan archivos Word .docx",false);return;}
+      aviso("Subiendo Word…",true);const url=await subir(f,"documentos");const a=clon(lista("documentos")||[]);
+      if(e.target.dataset.doc==="nuevo")a.push({f:url,c:"",t:f.name.replace(/\.docx$/i,"").replace(/[_-]+/g," "),d:"",k:""});else a[+e.target.dataset.doc].f=url;
+      setLista("documentos",a);mostrar(actual);aviso("Word listo. Complete los datos y oprima «Guardar y publicar».",true);
+    }
+  }catch(err){aviso("No se pudo subir: "+err.message,false);}
+});
+
+let tt;function aviso(txt,bien){const t=$("#toast");t.hidden=false;t.textContent=txt;t.className="toast "+(bien?"bien":"mal");clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,bien?3200:6000);}
+$("#descartar").onclick=()=>{if(!hayCambios().length)return;if(!confirmar($("#descartar"),"¿Descartar todo?"))return;nuevoBorrador();mostrar(actual);aviso("Cambios descartados",true);};
+$("#guardar").onclick=async()=>{
+  const ks=hayCambios();if(!ks.length){aviso("No hay cambios por publicar",true);return;}
+  const b=$("#guardar");b.disabled=true;b.textContent="Publicando…";
+  try{
+    await api("web_contenido?on_conflict=clave",{method:"POST",headers:{Prefer:"resolution=merge-duplicates,return=minimal"},body:JSON.stringify(ks.map(k=>({clave:k,valor:EDIT[k]})))});
+    ks.forEach(k=>GUARD[k]=clon(EDIT[k]));pintarCambios();
+    aviso("Cambios publicados. Ya se ven en la página.",true);
+  }catch(err){aviso("No se pudo publicar: "+err.message,false);}
+  b.disabled=false;b.textContent="Guardar y publicar";
+};
+
+/* ---------------- arranque ---------------- */
+(async function(){
+  const h=new URLSearchParams(location.hash.slice(1));
+  if(h.get("access_token")&&h.get("type")==="recovery"){
+    guardarSesion({token:h.get("access_token"),refresco:h.get("refresh_token"),vence:Date.now()+(+h.get("expires_in")||3600)*1000,correo:""});
+    history.replaceState(null,"",location.pathname);
+    $("#vIngreso").hidden=true;$("#vNueva").hidden=false;return;
+  }
+  if(h.get("error_description")){history.replaceState(null,"",location.pathname);msgLogin("El enlace ya no sirve: "+h.get("error_description").replace(/\+/g," ")+". Pida uno nuevo.");}
+  S=leerSesion();
+  if(S){try{await entrar()}catch(_){guardarSesion(null)}}
+})();
+})();
+</script>
+</body>
+</html>
