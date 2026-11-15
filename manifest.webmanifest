@@ -3,7 +3,7 @@
   "short_name": "Carvajal & Rivera",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#0e2140",
+  "background_color": "#1c3863",
   "theme_color": "#0e2140",
   "icons": [
     { "src": "img/icono-192.png", "sizes": "192x192", "type": "image/png" },
