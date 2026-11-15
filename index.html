@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Carvajal & Rivera Abogados Asociados, Santa Marta. Insolvencia, familia, civil, laboral, pensiones, tránsito y más. Calcule gratis si aplica a insolvencia y cuánto le pueden embargar.">
+<meta property="og:title" content="Carvajal & Rivera Abogados Asociados">
+<meta property="og:description" content="Servirle es nuestra vocación; proteger sus derechos, nuestro compromiso. Santa Marta, Colombia.">
+<meta property="og:image" content="img/equipo_oficina.jpg">
+<meta name="theme-color" content="#0b0f15">
+<link rel="icon" type="image/png" href="img/logo_cr.png">
+<link rel="apple-touch-icon" href="img/logo_cr.png">
+<title>Carvajal &amp; Rivera Abogados</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Outfit:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+[hidden]{display:none!important}
+img{max-width:100%}
+:root{padding-top:env(safe-area-inset-top,0px)}
+/* Layout: azul navy institucional con hilos dorados (red de partículas = tecnología); negro en la barra, la biblioteca y el pie; verde aceituna para confirmaciones y detalles. */
+:root{
+  --ink:#0e2140; --ink2:#132a4f; --ink3:#18335e; --line-d:#2a4573; --black:#0a0c10; --black2:#13161c; --line-k:#262b34;
+  --olive:#6b7b3a; --olive2:#9aab5c; --olive-bg:#eef2e0;
+  --paper:#f3f5f9; --card:#ffffff; --line:#dde2ea;
+  --gold:#c9a24d; --gold2:#e6c67f; --gold-d:#8a6a22;
+  --txt:#14213a; --mute:#56637a; --txt-d:#eaf0f8; --mute-d:#a5b4cc;
+  --ok:#5f7032; --ok-bg:#eef2e0; --no:#b3412f; --no-bg:#fbe8e4; --warn:#a36b00; --warn-bg:#fff3d9;
+  --wa:#1fa855;
+  --f-brand:"Cormorant Garamond",Georgia,serif;
+  --f-head:"Outfit","Segoe UI",system-ui,sans-serif;
+  --f-body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--txt);font:16px/1.6 var(--f-body);margin:0;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:90;background:var(--black)}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-head);text-wrap:balance;margin:0;line-height:1.18}
+h2{font-size:clamp(1.7rem,3.2vw,2.6rem);font-weight:600;letter-spacing:-.025em}
+h3{font-size:1.08rem;font-weight:600}
+p{margin:0}
+a{color:inherit}
+button{font-family:inherit}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 .74rem/1 var(--f-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-d)}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+.dark .eyebrow{color:var(--gold)}
+.lead{color:var(--mute);max-width:62ch;font-size:1.06rem}
+.dark{background:var(--ink);color:var(--txt-d);color-scheme:dark}
+.dark .lead{color:var(--mute-d)}
+.black{background:var(--black)}
+.black .doc{background:var(--black2);border-color:var(--line-k)}
+.black .search input{background:var(--black2);border-color:var(--line-k)}
+.black .filt button{border-color:var(--line-k)}
+.black .doc .ico::after{border-color:var(--black2) #6e93d6}
+section{padding-block:clamp(64px,9vw,112px);position:relative}
+.sec-head{display:grid;gap:14px;margin-bottom:40px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.reveal{transform:translateY(18px);transition:transform .8s var(--ease)}
+.reveal.in{transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{transform:none}}
+
+/* ---------- barra superior */
+.progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));z-index:95}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:80;background:rgba(10,12,16,.86);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.06);color:var(--txt-d);transition:background .3s}
+.top .wrap{display:flex;align-items:center;gap:18px;min-height:70px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.brand img{width:42px;height:auto}
+.brand b{font:600 1.28rem/1 var(--f-brand);color:var(--gold2);letter-spacing:.02em;display:block;white-space:nowrap}
+.brand small{font:500 .6rem/1 var(--f-mono);letter-spacing:.22em;text-transform:uppercase;color:var(--mute-d)}
+nav.menu{display:flex;gap:2px;margin-left:auto}
+nav.menu a{font:500 .84rem/1 var(--f-body);text-decoration:none;color:var(--mute-d);padding:9px 10px;border-radius:6px;position:relative;white-space:nowrap}
+nav.menu a:hover{color:#fff}
+nav.menu a.on{color:var(--gold2)}
+nav.menu a.on::after{content:"";position:absolute;left:10px;right:10px;bottom:2px;height:1px;background:var(--gold)}
+.status{display:flex;align-items:center;gap:7px;font:500 .72rem/1 var(--f-mono);color:var(--mute-d);white-space:nowrap;border:1px solid var(--line-k);border-radius:999px;padding:7px 11px}
+.dot{width:7px;height:7px;border-radius:50%;background:#7b8696}
+.dot.on{background:var(--olive2);box-shadow:0 0 0 0 rgba(154,171,92,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 7px rgba(154,171,92,0)}100%{box-shadow:0 0 0 0 rgba(154,171,92,0)}}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line-d);border-radius:8px;width:42px;height:40px;color:#fff;cursor:pointer}
+.burger span{display:block;width:18px;height:1.5px;background:currentColor;margin:4px auto;transition:transform .3s}
+.drawer{position:fixed;inset:0;z-index:85;background:rgba(14,33,64,.97);display:grid;align-content:center;gap:6px;padding:80px max(24px,env(safe-area-inset-left,0px)) 40px;transform:translateY(-100%);transition:transform .45s var(--ease)}
+.drawer.open{transform:none}
+.drawer a{font:600 1.6rem/1.3 var(--f-head);color:var(--txt-d);text-decoration:none;padding:6px 0}
+.drawer a:hover{color:var(--gold2)}
+@media (max-width:1180px){nav.menu{display:none}.burger{display:block}.status{margin-left:0}}
+@media (max-width:560px){.status{display:none}}
+
+/* ---------- portada */
+.hero{padding-block:clamp(40px,6vw,80px) clamp(80px,9vw,120px);overflow:hidden;background:radial-gradient(1200px 600px at 75% 20%,#1b3a6b 0,transparent 60%),linear-gradient(180deg,var(--ink) 0,#0b1a33 100%)}
+#red{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:160px;background:linear-gradient(transparent,#0b1a33);pointer-events:none}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero .copy{display:grid;gap:24px;min-width:0}
+.hero h1{font-family:var(--f-head);font-weight:600;font-size:clamp(2.6rem,5.6vw,4.6rem);line-height:1.02;color:#fff;letter-spacing:-.03em}
+.rot{display:inline-block;min-width:4ch;background:linear-gradient(90deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.rot .c{display:inline-block;width:3px;height:.8em;background:var(--olive2);margin-left:4px;vertical-align:-.08em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font:600 .95rem/1 var(--f-body);padding:15px 22px;border-radius:10px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s,border-color .25s,background .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.gold{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1a1408;box-shadow:0 10px 30px -12px rgba(201,162,77,.7)}
+.btn.ghost{border-color:#384559;color:var(--txt-d);background:rgba(255,255,255,.02)}
+.btn.ghost:hover{border-color:var(--gold)}
+.btn.ink{background:var(--ink);color:#fff}
+.btn.line{border-color:var(--line);background:var(--card);color:var(--txt)}
+.btn svg{width:18px;height:18px}
+.stats{display:flex;gap:28px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--line-d)}
+.stats div{display:grid;gap:2px;padding-top:16px}
+.stats b{font:600 1.9rem/1 var(--f-mono);color:#fff}
+.stats span{font-size:.82rem;color:var(--mute-d)}
+.tilt{perspective:1000px}
+.photo{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(230,198,127,.25);transform-style:preserve-3d;transition:transform .2s ease-out;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+.photo img{width:100%;aspect-ratio:941/1020;object-fit:cover;display:block}
+.photo::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,30%),rgba(230,198,127,.18),transparent 45%);pointer-events:none}
+.photo .tag{position:absolute;left:14px;right:14px;bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:rgba(11,15,21,.78);backdrop-filter:blur(8px);border:1px solid var(--line-d);border-radius:12px;padding:12px 14px;font-size:.86rem;color:var(--txt-d);z-index:2}
+.photo .tag b{color:var(--gold2);font-weight:600}
+.badge{position:absolute;top:16px;left:16px;z-index:2;display:flex;align-items:center;gap:8px;background:rgba(11,15,21,.78);backdrop-filter:blur(8px);border:1px solid var(--line-d);border-radius:999px;padding:8px 12px;font:500 .74rem/1 var(--f-mono);color:var(--txt-d)}
+.badge i{color:#f5c542;font-style:normal;letter-spacing:1px}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.tilt{max-width:520px}}
+
+/* ---------- accesos rápidos */
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-64px;position:relative;z-index:5}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:10px;text-decoration:none;box-shadow:0 18px 40px -26px rgba(11,15,21,.45);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;align-content:start}
+.tool:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 28px 50px -28px rgba(11,15,21,.5)}
+.tool .ic{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--ink3),var(--ink));display:grid;place-items:center}
+.tool .ic svg{width:20px;height:20px;stroke:var(--gold2);fill:none;stroke-width:1.7}
+.tool p{color:var(--mute);font-size:.9rem}
+.tool .go{font:600 .86rem/1 var(--f-body);display:flex;gap:6px;align-items:center}
+.tool .go i{font-style:normal;transition:transform .3s}
+.tool:hover .go i{transform:translateX(4px)}
+@media (max-width:1000px){.tools{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.tools{grid-template-columns:1fr;margin-top:-48px}}
+
+/* ---------- nosotros */
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+.about .text{display:grid;gap:20px;min-width:0}
+.quote{font:500 clamp(1.2rem,2vw,1.5rem)/1.4 var(--f-head);color:var(--txt);border-left:3px solid var(--olive);padding-left:18px;letter-spacing:-.01em}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tabs button{background:none;border:0;padding:12px 14px;font:600 .92rem/1 var(--f-body);color:var(--mute);cursor:pointer;position:relative}
+.tabs button[aria-selected="true"]{color:var(--txt)}
+.tabs button[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--gold)}
+.tabpanel{min-height:120px;color:var(--mute);font-size:1rem}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.value{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:2px;transition:border-color .3s,transform .3s}
+.value:hover{border-color:var(--olive);transform:translateY(-2px)}
+.value b{font-size:.92rem}
+.value small{color:var(--mute);font-size:.8rem;line-height:1.4}
+@media (max-width:560px){.values{grid-template-columns:1fr 1fr}}
+.team{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.person{position:relative;border-radius:16px;overflow:hidden;background:var(--ink);color:#fff;isolation:isolate}
+.person img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;display:block;transition:transform .8s var(--ease)}
+.person:hover img{transform:scale(1.04)}
+.person .info{position:absolute;inset:auto 0 0;padding:60px 16px 16px;background:linear-gradient(transparent,rgba(11,15,21,.92) 55%);display:grid;gap:2px}
+.person small{color:var(--gold2);font:500 .72rem/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.person .more{max-height:0;overflow:hidden;color:#cdd4df;font-size:.86rem;transition:max-height .5s var(--ease),margin .5s;margin-top:0}
+.person:hover .more,.person:focus-within .more{max-height:120px;margin-top:6px}
+@media (max-width:900px){.about{grid-template-columns:1fr}}
+
+/* ---------- áreas */
+.areas{display:grid;grid-template-columns:320px 1fr;gap:24px;align-items:start}
+.alist{display:grid;gap:4px}
+.alist button{display:flex;align-items:center;gap:12px;text-align:left;background:transparent;border:1px solid transparent;color:var(--mute-d);border-radius:10px;padding:12px 14px;font:600 .96rem/1.2 var(--f-body);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.alist button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;flex:none}
+.alist button:hover{color:#fff;background:var(--ink2)}
+.alist button[aria-selected="true"]{color:#fff;background:var(--ink3);border-color:var(--line-d)}
+.alist button[aria-selected="true"] svg{stroke:var(--gold2)}
+.apanel{background:linear-gradient(160deg,var(--ink3),var(--ink2));border:1px solid var(--line-d);border-radius:18px;padding:clamp(22px,3vw,36px);display:grid;gap:18px;min-height:380px;position:relative;overflow:hidden}
+.apanel .bigic{position:absolute;right:-30px;top:-30px;width:220px;height:220px;stroke:rgba(230,198,127,.07);fill:none;stroke-width:1}
+.apanel h3{font-size:clamp(1.4rem,2.4vw,1.9rem)}
+.apanel p{color:var(--mute-d);max-width:60ch}
+.apanel ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.apanel li{display:flex;gap:10px;align-items:flex-start;font-size:.94rem;color:var(--txt-d)}
+.apanel li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--olive2);margin-top:9px;flex:none}
+.apanel .fade{animation:fade .5s var(--ease)}
+@keyframes fade{from{opacity:.2;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (max-width:900px){.areas{grid-template-columns:1fr}.alist{grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;padding-bottom:6px}.apanel ul{grid-template-columns:1fr}}
+
+/* ---------- proceso */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;counter-reset:s}
+.steps::before{content:"";position:absolute;left:0;right:0;top:23px;height:1px;background:var(--line)}
+.step{position:relative;padding-right:20px;display:grid;gap:10px}
+.step .n{width:46px;height:46px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;font:600 .9rem/1 var(--f-mono);color:var(--olive);position:relative;transition:background .3s,color .3s,border-color .3s}
+.step:hover .n{background:var(--olive);color:#fff;border-color:var(--olive)}
+.step p{color:var(--mute);font-size:.92rem}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr;gap:28px}.steps::before{display:none}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* ---------- calculadoras */
+.calc{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -45px rgba(11,15,21,.5)}
+.calc-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 22px;border-bottom:1px solid var(--line);background:#fafbfc;font:500 .76rem/1.3 var(--f-mono);color:var(--mute)}
+.example{font:600 .64rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;background:var(--warn-bg);color:var(--warn);padding:5px 8px;border-radius:5px}
+.wiz{display:flex;gap:0;border-bottom:1px solid var(--line)}
+.wiz button{flex:1;display:flex;align-items:center;gap:10px;justify-content:center;background:none;border:0;border-right:1px solid var(--line);padding:16px 10px;font:600 .9rem/1.2 var(--f-body);color:var(--mute);cursor:pointer;position:relative}
+.wiz button:last-child{border-right:0}
+.wiz button i{font:600 .78rem/1 var(--f-mono);font-style:normal;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);flex:none}
+.wiz button[aria-current="step"]{color:var(--txt)}
+.wiz button[aria-current="step"] i{background:var(--ink);color:var(--gold2);border-color:var(--ink)}
+.wiz button.done i{background:var(--olive);color:#fff;border-color:var(--ok)}
+.wiz button[aria-current="step"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--gold)}
+@media (max-width:560px){.wiz button span{display:none}}
+.pane{padding:24px;display:grid;gap:18px}
+.pane[hidden]{display:none}
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qcard{border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:12px;align-content:start}
+.qcard h3{font-size:1rem}
+.qcard p{color:var(--mute);font-size:.88rem}
+@media (max-width:700px){.qgrid{grid-template-columns:1fr}}
+label,.lbl{font-weight:600;font-size:.86rem;display:grid;gap:6px;align-content:start}
+input,select,textarea{font:inherit;font-size:.95rem;color:var(--txt);background:#fff;border:1px solid #cfd5df;border-radius:9px;padding:11px 12px;width:100%;min-width:0;transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 4px rgba(201,162,77,.18)}
+.seg{display:inline-flex;gap:4px;background:#eef0f4;padding:4px;border-radius:10px;flex-wrap:wrap}
+.seg button{font:600 .86rem/1 var(--f-body);border:0;background:transparent;border-radius:7px;padding:10px 14px;cursor:pointer;color:var(--mute)}
+.seg button[aria-pressed="true"]{background:var(--card);color:var(--txt);box-shadow:0 1px 3px rgba(11,15,21,.15)}
+.stepper{display:flex;align-items:center;border:1px solid #cfd5df;border-radius:9px;overflow:hidden;width:max-content}
+.stepper button{width:42px;height:42px;border:0;background:#f4f5f7;font-size:1.2rem;cursor:pointer;color:var(--txt)}
+.stepper output{min-width:50px;text-align:center;font:600 1rem/1 var(--f-mono)}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:.88rem}
+th{font:600 .68rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:left;padding:10px 8px;background:#f6f7f9;border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr{animation:fade .35s var(--ease)}
+td input,td select{padding:8px 9px;font-size:.88rem}
+td.num input{font-family:var(--f-mono);text-align:right}
+.mora{font:600 .74rem/1 var(--f-mono);padding:6px 8px;border-radius:6px;white-space:nowrap;display:inline-block}
+.mora.alta{background:var(--no-bg);color:var(--no)}
+.mora.baja{background:var(--warn-bg);color:var(--warn)}
+.mora.cero{background:#eef1f5;color:var(--mute)}
+.x{border:0;background:none;color:var(--mute);cursor:pointer;font-size:1.15rem;padding:4px 8px;border-radius:6px}
+.x:hover{background:var(--no-bg);color:var(--no)}
+.add{justify-self:start;font:600 .88rem/1 var(--f-body);background:none;border:1px dashed #b9c1ce;border-radius:9px;padding:11px 14px;cursor:pointer;color:var(--txt)}
+.add:hover{border-color:var(--gold);color:var(--gold-d)}
+.nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.note{font-size:.8rem;color:var(--mute);line-height:1.5}
+.result{display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:center}
+@media (max-width:760px){.result{grid-template-columns:1fr;justify-items:start}}
+.gauge{position:relative;width:220px;height:220px}
+.gauge svg{width:100%;height:100%;transform:rotate(-90deg)}
+.gauge circle{fill:none;stroke-width:14}
+.gauge .bg{stroke:#eceef2}
+.gauge .fg{stroke:url(#gg);stroke-linecap:round;transition:stroke-dashoffset 1s var(--ease)}
+.gauge .mark{stroke:var(--ink);stroke-width:16}
+.gauge .lab{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:2px}
+.gauge .lab b{font:600 2.2rem/1 var(--f-mono)}
+.gauge .lab span{font-size:.78rem;color:var(--mute)}
+.verdict{border-radius:12px;padding:16px 18px;display:grid;gap:6px}
+.verdict.si{background:var(--ok-bg);color:#0f5136}
+.verdict.no{background:var(--no-bg);color:#7a2618}
+.verdict b{font:700 1.25rem/1.25 var(--f-head)}
+.checks{display:grid;gap:10px;list-style:none;margin:0;padding:0}
+.checks li{display:grid;grid-template-columns:24px 1fr;gap:10px;font-size:.92rem}
+.checks i{font-style:normal;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:700 .75rem/1 var(--f-mono)}
+.checks .y i{background:var(--ok);color:#fff}
+.checks .n i{background:var(--no);color:#fff}
+.kv{display:grid;grid-template-columns:1fr auto;gap:8px 14px;font-size:.92rem}
+.kv span:nth-child(even){font:600 .95rem/1.4 var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+.emb{display:grid;grid-template-columns:1.3fr 1fr;min-width:0}
+.emb-in{padding:24px;display:grid;gap:20px;align-content:start;border-right:1px solid var(--line);min-width:0}
+.emb-out{padding:24px;display:grid;gap:16px;align-content:start;background:#fbfaf6;min-width:0}
+@media (max-width:960px){.emb{grid-template-columns:1fr}.emb-in{border-right:0;border-bottom:1px solid var(--line)}}
+input[type=range]{-webkit-appearance:none;appearance:none;height:6px;border-radius:99px;background:linear-gradient(90deg,var(--gold) var(--p,30%),#e3e6ec var(--p,30%));border:0;padding:0;box-shadow:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--ink);border:3px solid var(--gold2);cursor:grab}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--ink);border:3px solid var(--gold2);cursor:grab}
+.money{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.money input{font:600 1.4rem/1 var(--f-mono);max-width:240px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid #cfd5df;background:#fff;border-radius:999px;padding:9px 14px;font:600 .86rem/1 var(--f-body);cursor:pointer;color:var(--txt);display:inline-flex;gap:8px;align-items:center;transition:all .2s}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip[aria-pressed="true"]::before{content:"✓";color:var(--olive2);font-size:.8rem}
+.donut{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center}
+.donut svg{width:150px;height:150px;transform:rotate(-90deg)}
+.donut circle{fill:none;stroke-width:18;transition:stroke-dasharray .8s var(--ease)}
+.big{font:600 clamp(1.8rem,3.6vw,2.5rem)/1.05 var(--f-mono);font-variant-numeric:tabular-nums}
+.legend{display:grid;gap:6px;font-size:.84rem;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.rule{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:6px;font-size:.86rem;color:var(--mute);cursor:default;transition:border-color .3s}
+.rule:hover{border-color:var(--gold)}
+.rule b{color:var(--txt);font-size:.95rem}
+.rule .pct{font:600 1.3rem/1 var(--f-mono);color:var(--gold-d)}
+@media (max-width:960px){.rules{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.rules{grid-template-columns:1fr}}
+
+/* ---------- reseñas */
+.revs{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
+.score{display:grid;gap:10px}
+.score b{font:600 4rem/1 var(--f-mono);color:#fff}
+.stars{color:#f5c542;letter-spacing:3px;font-size:1.2rem}
+.slider{position:relative;overflow:hidden;border-radius:18px}
+.track{display:flex;transition:transform .7s var(--ease)}
+.rev{flex:0 0 100%;background:var(--ink3);border:1px solid var(--line-d);border-radius:18px;padding:clamp(22px,3vw,34px);display:grid;gap:16px}
+.rev q{font:400 clamp(1.1rem,1.8vw,1.35rem)/1.55 var(--f-head);color:var(--txt-d);quotes:"“" "”"}
+.who{display:flex;align-items:center;gap:12px}
+.av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold2),var(--gold-d));color:#1a1408;display:grid;place-items:center;font:700 1.05rem/1 var(--f-head)}
+.who small{display:block;color:var(--mute-d);font-size:.8rem}
+.tagr{margin-left:auto;font:600 .68rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--olive2);border:1px solid var(--line-d);border-radius:999px;padding:6px 10px}
+.sl-nav{display:flex;align-items:center;gap:10px;margin-top:16px}
+.sl-nav button.arr{width:42px;height:42px;border-radius:50%;border:1px solid var(--line-d);background:transparent;color:#fff;cursor:pointer;font-size:1.1rem}
+.sl-nav button.arr:hover{border-color:var(--gold)}
+.dots{display:flex;gap:6px}
+.dots button{width:8px;height:8px;border-radius:99px;border:0;background:#3a4558;cursor:pointer;padding:0;transition:width .3s,background .3s}
+.dots button[aria-current="true"]{width:26px;background:var(--gold)}
+@media (max-width:900px){.revs{grid-template-columns:1fr}}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(11,15,21,.65);backdrop-filter:blur(4px);display:grid;place-items:center;padding:20px}
+.modal[hidden]{display:none}
+.mbox{background:var(--card);color:var(--txt);border-radius:18px;max-width:520px;width:100%;padding:24px;display:grid;gap:14px;animation:fade .35s var(--ease);max-height:90vh;overflow:auto}
+.mhead{display:flex;justify-content:space-between;align-items:center}
+.pick{display:flex;gap:4px}
+.pick button{background:none;border:0;font-size:2rem;line-height:1;color:#d7dbe2;cursor:pointer;padding:0 2px;transition:transform .15s,color .15s}
+.pick button.on{color:#f5c542}
+.pick button:hover{transform:scale(1.15)}
+
+/* ---------- biblioteca */
+.libbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+.search{position:relative;flex:1;min-width:220px;max-width:420px}
+.search input{background:var(--ink2);border-color:var(--line-d);color:var(--txt-d);padding-left:40px}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--mute-d);fill:none;stroke-width:2}
+.filt{display:flex;gap:6px;flex-wrap:wrap}
+.filt button{background:transparent;border:1px solid var(--line-d);color:var(--mute-d);border-radius:999px;padding:8px 13px;font:600 .82rem/1 var(--f-body);cursor:pointer}
+.filt button[aria-pressed="true"]{background:var(--gold);color:#1a1408;border-color:var(--gold)}
+.lib{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.doc{background:var(--ink2);border:1px solid var(--line-d);border-radius:14px;padding:20px;display:grid;gap:12px;align-content:start;transition:transform .3s var(--ease),border-color .3s}
+.doc:hover{transform:translateY(-4px);border-color:rgba(230,198,127,.45)}
+.doc .top2{display:flex;justify-content:space-between;align-items:center}
+.doc .ico{width:42px;height:50px;border-radius:6px;background:#1d4ea6;color:#fff;display:grid;place-items:center;font:700 .74rem/1 var(--f-mono);position:relative}
+.doc .ico::after{content:"";position:absolute;top:0;right:0;border-width:0 10px 10px 0;border-style:solid;border-color:var(--ink2) #6e93d6}
+.doc .cat{font:600 .66rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.doc p{color:var(--mute-d);font-size:.9rem}
+.doc .meta{font:500 .72rem/1 var(--f-mono);color:var(--mute-d)}
+.doc .btn{justify-self:start;padding:11px 15px;font-size:.86rem}
+.empty{color:var(--mute-d);padding:20px;border:1px dashed var(--line-d);border-radius:12px}
+@media (max-width:900px){.lib{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.lib{grid-template-columns:1fr}}
+
+/* ---------- cursos */
+.soon{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+.tape{display:inline-flex;align-items:center;gap:10px;font:600 .74rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#fff;padding:9px 14px;border-radius:6px;background:repeating-linear-gradient(-45deg,var(--olive) 0 14px,#7f8f48 14px 28px);background-size:40px 40px;animation:tape 1.6s linear infinite;justify-self:start}
+@keyframes tape{to{background-position:40px 0}}
+.courses{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.course{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:18px;display:grid;gap:10px;position:relative;overflow:hidden}
+.course .lock{position:absolute;top:14px;right:14px;font:600 .64rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);background:#eef0f4;border-radius:5px;padding:5px 7px}
+.course .kind{font:600 .68rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--olive)}
+.course p{color:var(--mute);font-size:.88rem}
+.skel{height:8px;border-radius:99px;background:linear-gradient(90deg,#eceef2 25%,#f6f7f9 50%,#eceef2 75%);background-size:200% 100%;animation:sk 1.6s infinite}
+@keyframes sk{to{background-position:-200% 0}}
+.wait{display:flex;gap:8px;flex-wrap:wrap}
+.wait input{flex:1;min-width:200px}
+@media (max-width:900px){.soon{grid-template-columns:1fr}}
+@media (max-width:520px){.courses{grid-template-columns:1fr}}
+
+/* ---------- contacto */
+.contact{display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:start}
+.ways{display:grid;gap:10px}
+.way{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.way .wi{width:42px;height:42px;border-radius:10px;background:var(--ink);display:grid;place-items:center}
+.way svg{width:20px;height:20px;stroke:var(--gold2);fill:none;stroke-width:1.7}
+.way small{color:var(--mute);display:block;font-size:.78rem}
+.way b{font-family:var(--f-mono);font-weight:600;font-size:.92rem;user-select:all;word-break:break-word}
+.cp{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 10px;font:600 .76rem/1 var(--f-body);cursor:pointer;color:var(--mute)}
+.cp.ok{color:var(--ok);border-color:var(--ok)}
+.mapcard{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#e9edf2;height:240px}
+.mapcard canvas{width:100%;height:100%;display:block}
+.mapcard .pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-100%);display:grid;justify-items:center;gap:6px}
+.mapcard .pin span{background:var(--ink);color:#fff;font:600 .78rem/1.2 var(--f-body);padding:8px 10px;border-radius:8px;white-space:nowrap}
+.mapcard .pin i{width:16px;height:16px;border-radius:50%;background:var(--gold);border:3px solid #fff;box-shadow:0 0 0 6px rgba(201,162,77,.3);animation:ping2 2s infinite}
+@keyframes ping2{50%{box-shadow:0 0 0 12px rgba(201,162,77,0)}}
+.mapcard a{position:absolute;right:10px;bottom:10px}
+.social{display:flex;gap:8px}
+.social a{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;transition:border-color .2s,transform .2s}
+.social a:hover{border-color:var(--gold);transform:translateY(-2px)}
+.social svg{width:18px;height:18px;fill:var(--txt)}
+form.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:14px;box-shadow:0 30px 60px -45px rgba(11,15,21,.5)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:end}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
+.topics{display:flex;gap:6px;flex-wrap:wrap}
+.consent{display:grid;grid-template-columns:20px 1fr;gap:10px;font-weight:400;font-size:.82rem;color:var(--mute)}
+.consent input{width:18px;height:18px;margin-top:2px;padding:0}
+.sent{background:var(--ok-bg);color:#0f5136;border-radius:10px;padding:12px 14px;font-size:.9rem}
+@media (max-width:900px){.contact{grid-template-columns:1fr}}
+
+footer{background:var(--black);color:var(--mute-d);font-size:.86rem;padding-block:44px}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+footer b.f{color:var(--gold2);font:600 1.3rem/1 var(--f-brand)}
+footer h4{margin:0 0 10px;font:600 .72rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--txt-d)}
+footer a{text-decoration:none;display:block;padding:3px 0}
+footer a:hover{color:var(--gold2)}
+footer .legal{grid-column:1/-1;border-top:1px solid var(--line-k);padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.8rem}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+
+/* ---------- WhatsApp */
+.wa{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:96;width:60px;height:60px;border-radius:50%;background:var(--wa);border:0;cursor:pointer;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.55)}
+.wa::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--wa);animation:ring 2.4s infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+.wa svg{width:30px;height:30px;fill:#fff}
+.wa .n{position:absolute;top:-2px;right:-2px;width:20px;height:20px;border-radius:50%;background:#e2483d;color:#fff;font:700 .7rem/20px var(--f-body);text-align:center}
+.wapanel{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:96;width:min(360px,calc(100vw - 32px));background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);transform-origin:bottom right;transition:transform .3s var(--ease),opacity .3s}
+.wapanel[hidden]{display:block!important;transform:scale(.9) translateY(10px);opacity:0;pointer-events:none}
+.wah{background:#075e54;color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.wah img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:top;background:#fff}
+.wah small{display:block;opacity:.8;font-size:.76rem}
+.wah button{margin-left:auto;background:none;border:0;color:#fff;font-size:1.3rem;cursor:pointer}
+.wab{background:#efeae2;padding:16px;display:grid;gap:10px;max-height:340px;overflow:auto}
+.bub{background:#fff;border-radius:10px 10px 10px 2px;padding:10px 12px;font-size:.9rem;max-width:88%;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.bub small{display:block;text-align:right;color:#8a8f96;font-size:.68rem;margin-top:4px}
+.typing{display:inline-flex;gap:4px;padding:12px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#9aa0a6;animation:bo 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bo{50%{transform:translateY(-4px)}}
+.qr{display:flex;flex-wrap:wrap;gap:6px}
+.qr a{background:#fff;border:1px solid #d1e7dd;color:#075e54;border-radius:999px;padding:8px 12px;font:600 .82rem/1 var(--f-body);text-decoration:none}
+.qr a:hover{background:#d9fdd3}
+.waf{padding:10px 12px;background:#f0f2f5;font-size:.74rem;color:#667;text-align:center}
+</style>
+
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><img src="img/logo_cr.png" alt="Logo CR"><span><b>Carvajal &amp; Rivera</b><small>Abogados Asociados</small></span></a>
+    <nav class="menu" aria-label="Secciones">
+      <a href="#nosotros">Nosotros</a><a href="#areas">Áreas</a><a href="#insolvencia">Insolvencia</a><a href="#embargos">Embargos</a><a href="#resenas">Reseñas</a><a href="#peticiones">Derechos de petición</a><a href="#cursos">Cursos</a><a href="#contacto">Contacto</a>
+    </nav>
+    <div class="status"><span class="dot" id="dot"></span><span id="estado">Hora de Colombia</span></div>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="drawer" id="drawer" aria-label="Menú">
+  <a href="#nosotros">Nosotros</a><a href="#areas">Áreas del derecho</a><a href="#insolvencia">¿Aplico a insolvencia?</a><a href="#embargos">Calculadora de embargos</a><a href="#resenas">Reseñas</a><a href="#peticiones">Derechos de petición</a><a href="#cursos">Cursos y diplomados</a><a href="#contacto">Contacto</a>
+</nav>
+
+<main id="inicio">
+<!-- PORTADA -->
+<section class="hero dark">
+  <canvas id="red" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="copy">
+      <span class="eyebrow">Santa Marta · Consultores jurídicos</span>
+      <h1>Protegemos<br><span class="rot" id="rot">su familia</span><span class="rot"><span class="c"></span></span></h1>
+      <p class="lead">Servirle es nuestra vocación; proteger sus derechos, nuestro compromiso. Somos Darío Carvajal y Mileidi Rivera, y atendemos cada caso nosotros mismos, con calma y en palabras claras.</p>
+      <div class="cta">
+        <a class="btn gold" href="#contacto">Agendar una cita</a>
+        <a class="btn ghost" href="#insolvencia">¿Aplico a insolvencia?</a>
+      </div>
+      <div class="stats">
+        <div><b data-count="10" data-suffix="+">0</b><span>años de experiencia</span></div>
+        <div><b data-count="10">0</b><span>áreas del derecho</span></div>
+        <div><b>5,0</b><span>calificación de nuestros clientes</span></div>
+      </div>
+    </div>
+    <div class="tilt">
+      <figure class="photo" id="photo" style="margin:0">
+        <span class="badge"><i>★★★★★</i> Reseñas de clientes</span>
+        <img src="img/equipo_oficina.jpg" alt="Darío Carvajal y Mileidi Rivera en la oficina">
+        <figcaption class="tag"><span><b>Darío Carvajal</b> y <b>Mileidi Rivera</b></span><span>Abogados</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="tools">
+    <a class="tool reveal" href="#insolvencia"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 19h16M6 16V9M10 16V6M14 16v-4M18 16V8"/></svg></span><h3>¿Puedo acogerme a la insolvencia?</h3><p>Revise en un minuto si cumple la Ley 2445 de 2025.</p><span class="go">Revisar mi caso <i>→</i></span></a>
+    <a class="tool reveal" href="#embargos"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4v8l6 4"/></svg></span><h3>¿Cuánto me pueden embargar?</h3><p>Calcule en tiempo real cuánto le pueden descontar.</p><span class="go">Calcular ahora <i>→</i></span></a>
+    <a class="tool reveal" href="#peticiones"><span class="ic"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 13h5M10 17h5"/></svg></span><h3>Derechos de petición</h3><p>Modelos en Word gratuitos, listos para llenar.</p><span class="go">Ver la biblioteca <i>→</i></span></a>
+    <a class="tool reveal" href="#contacto"><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><h3>Agende su cita</h3><p>Lunes a viernes, en nuestra oficina de Santa Marta.</p><span class="go">Escribirnos <i>→</i></span></a>
+  </div>
+</div>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="wrap about">
+    <div class="text reveal">
+      <span class="eyebrow">Quiénes somos</span>
+      <h2>Más que abogados, aliados en la búsqueda de justicia.</h2>
+      <p class="lead">En Carvajal &amp; Rivera llevamos más de 10 años ejerciendo el derecho, en el sector público y en el privado. Le ofrecemos una asesoría cercana, honesta y eficiente, y le decimos con franqueza qué se puede hacer en su caso y qué no.</p>
+      <p class="quote">«Estamos aquí para proteger lo que más le importa.»</p>
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-t="mision">Misión</button>
+        <button role="tab" aria-selected="false" data-t="vision">Visión</button>
+        <button role="tab" aria-selected="false" data-t="valores">Valores</button>
+      </div>
+      <div class="tabpanel" id="tabpanel" role="tabpanel"></div>
+    </div>
+    <div class="team reveal">
+      <article class="person" tabindex="0"><img src="img/dario.jpg" alt="Darío Carvajal"><div class="info"><small>Socio fundador</small><h3>Darío Carvajal</h3><p class="more">Abogado. Lidera los casos de insolvencia, civil y administrativo, y la tecnología del despacho.</p></div></article>
+      <article class="person" tabindex="0"><img src="img/mileidi.jpg" alt="Mileidi Rivera"><div class="info"><small>Socia fundadora</small><h3>Mileidi Rivera</h3><p class="more">Abogada. Acompaña de cerca los casos de familia, laborales y la recuperación de cartera.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section id="areas" class="dark">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Áreas del derecho</span><h2>En qué le podemos ayudar</h2><p class="lead">Toque cada área para ver los casos que atendemos con más frecuencia. Si el suyo no aparece, escríbanos igual: le diremos con franqueza si podemos ayudarle.</p></div>
+    <div class="areas reveal">
+      <div class="alist" role="tablist" id="alist"></div>
+      <div class="apanel" id="apanel" role="tabpanel"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section style="padding-bottom:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Cómo trabajamos</span><h2>Así acompañamos su caso</h2></div>
+    <div class="steps reveal">
+      <div class="step"><span class="n">1</span><h3>Nos cuenta qué pasó</h3><p>Por WhatsApp, en la oficina o con el formulario. Lo escuchamos sin afán.</p></div>
+      <div class="step"><span class="n">2</span><h3>Revisamos sus documentos</h3><p>Estudiamos su caso y le decimos con claridad qué opciones tiene.</p></div>
+      <div class="step"><span class="n">3</span><h3>Le proponemos un plan</h3><p>Con los pasos, los tiempos y los costos por escrito, antes de empezar.</p></div>
+      <div class="step"><span class="n">4</span><h3>Lo acompañamos hasta el final</h3><p>Le avisamos de cada novedad de su proceso para que nunca esté a ciegas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSOLVENCIA -->
+<section id="insolvencia">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Insolvencia de persona natural no comerciante</span><h2>¿Puede usted acogerse al régimen de insolvencia?</h2><p class="lead">En tres pasos revisamos los requisitos de la Ley 2445 de 2025 con la información que usted nos dé. Lo que escriba se queda en su equipo: no lo guardamos ni lo enviamos.</p></div>
+    <div class="calc reveal">
+      <div class="calc-top"><span>Fecha de revisión: <b id="hoyIns">—</b> (hora de Colombia)</span><span class="example">Ejemplo: cambie los datos por los suyos</span></div>
+      <div class="wiz" id="wiz">
+        <button type="button" data-s="0" aria-current="step"><i>1</i><span>Su situación</span></button>
+        <button type="button" data-s="1"><i>2</i><span>Sus deudas</span></button>
+        <button type="button" data-s="2"><i>3</i><span>Resultado</span></button>
+      </div>
+      <div class="pane" data-p="0">
+        <div class="qgrid">
+          <div class="qcard"><h3>¿Tiene un negocio inscrito en Cámara de Comercio?</h3><p>Este trámite es para personas que no ejercen como comerciantes.</p><div class="seg" id="segCom"><button type="button" data-v="no" aria-pressed="true">No</button><button type="button" data-v="si" aria-pressed="false">Sí, soy comerciante</button></div></div>
+          <div class="qcard"><h3>¿Cuántas demandas de cobro tiene en su contra?</h3><p>Procesos ejecutivos o de cobro ante un juez. Si no sabe, deje 0.</p><div class="stepper"><button type="button" id="pMenos" aria-label="Menos">−</button><output id="procesos">0</output><button type="button" id="pMas" aria-label="Más">+</button></div></div>
+        </div>
+        <div class="nav-row"><span></span><button type="button" class="btn ink" data-go="1">Siguiente: mis deudas →</button></div>
+      </div>
+      <div class="pane" data-p="1" hidden>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Acreedor</th><th>Tipo</th><th style="text-align:right">Saldo que debe</th><th>Último pago</th><th>Fecha de vencimiento</th><th>Mora</th><th></th></tr></thead>
+            <tbody id="deudas"></tbody>
+          </table>
+        </div>
+        <button type="button" class="add" id="addDeuda">+ Agregar otra deuda</button>
+        <p class="note">La <b>fecha de vencimiento</b> es la de la primera cuota que dejó de pagar. Desde ese día contamos los días de mora.</p>
+        <div class="nav-row"><button type="button" class="btn line" data-go="0">← Atrás</button><button type="button" class="btn gold" data-go="2">Ver mi resultado →</button></div>
+      </div>
+      <div class="pane" data-p="2" hidden>
+        <div class="result" id="outIns"></div>
+        <div class="nav-row"><button type="button" class="btn line" data-go="1">← Revisar mis deudas</button><a class="btn ink" href="#contacto" id="ctaIns">Quiero que revisen mi caso</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMBARGOS -->
+<section id="embargos" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Calculadora de embargos</span><h2>Conozca en tiempo real cuánto de su salario pueden embargar</h2><p class="lead">El salario mínimo no se puede embargar, salvo dos excepciones: las cuotas de alimentos y las deudas con cooperativas. Mueva la barra y marque con quién tiene deudas.</p></div>
+    <div class="calc reveal">
+      <div class="calc-top"><span>Salario mínimo usado: <b id="smlmvTxt">—</b></span><span class="example">Ejemplo: cambie los datos por los suyos</span></div>
+      <div class="emb">
+        <div class="emb-in">
+          <div class="lbl">¿Qué recibe cada mes?<div class="seg" id="segIng"><button type="button" data-v="salario" aria-pressed="true">Salario</button><button type="button" data-v="pension" aria-pressed="false">Pensión</button></div></div>
+          <div class="lbl"><span>Valor mensual, sin auxilio de transporte</span>
+            <div class="money"><input id="salario" inputmode="numeric" value="$ 3.500.000" aria-label="Valor mensual"><span class="note" id="enMin">2,0 salarios mínimos</span></div>
+            <input type="range" id="rango" min="1000000" max="15000000" step="50000" value="3500000" aria-label="Ajustar salario">
+          </div>
+          <div class="lbl">¿Con quién tiene deudas? <span class="note" style="font-weight:400">Puede marcar varias.</span>
+            <div class="chips" id="tiposEmb">
+              <button type="button" class="chip" data-t="banco" aria-pressed="true">Banco</button>
+              <button type="button" class="chip" data-t="cobranza" aria-pressed="false">Casa de cobranza</button>
+              <button type="button" class="chip" data-t="coop" aria-pressed="true">Cooperativa</button>
+              <button type="button" class="chip" data-t="alim" aria-pressed="false">Cuota de alimentos</button>
+            </div>
+          </div>
+          <label for="saldoEmb">¿Cuánto debe en total?<input id="saldoEmb" inputmode="numeric" value="$ 17.000.000"></label>
+        </div>
+        <div class="emb-out" id="outEmb" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="rules reveal">
+      <div class="rule"><span class="pct">20 %</span><b>Bancos</b>Solo con orden de un juez, y máximo la quinta parte de lo que gane por encima del mínimo (art. 155 CST).</div>
+      <div class="rule"><span class="pct">20 %</span><b>Casas de cobranza</b>No pueden embargar por su cuenta. Necesitan demandar ante un juez; aplica la misma regla de los bancos.</div>
+      <div class="rule"><span class="pct">50 %</span><b>Cooperativas</b>Pueden embargar hasta la mitad del salario, incluido el mínimo (art. 156 CST).</div>
+      <div class="rule"><span class="pct">0 %</span><b>Pensiones</b>Son inembargables, salvo alimentos y cooperativas hasta el 50 % (art. 134 Ley 100 de 1993; art. 344 CST).</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section id="resenas" class="dark">
+  <div class="wrap revs">
+    <div class="score reveal">
+      <span class="eyebrow">Reseñas</span>
+      <h2>Lo que dicen nuestros clientes</h2>
+      <div style="display:flex;align-items:center;gap:14px"><b>5,0</b><div><div class="stars">★★★★★</div><span class="note" style="color:var(--mute-d)">Promedio de las reseñas publicadas</span></div></div>
+      <p class="lead">Cada reseña la escribe una persona que atendimos. Las revisamos antes de publicarlas para proteger los datos de todos.</p>
+      <div><button type="button" class="btn gold" id="openRev">Dejar mi reseña</button></div>
+    </div>
+    <div class="reveal" style="min-width:0">
+      <div class="slider"><div class="track" id="track"></div></div>
+      <div class="sl-nav"><button type="button" class="arr" id="prev" aria-label="Anterior">←</button><div class="dots" id="dots"></div><button type="button" class="arr" id="next" aria-label="Siguiente">→</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- DERECHOS DE PETICIÓN -->
+<section id="peticiones" class="dark black">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Biblioteca gratuita</span><h2>Modelos de derecho de petición</h2><p class="lead">Todos tenemos derecho a pedir y a recibir respuesta (art. 23 de la Constitución). La entidad debe contestarle dentro de los 15 días hábiles siguientes (Ley 1755 de 2015). Descargue el modelo, llénelo con sus datos y radíquelo.</p></div>
+    <div class="libbar reveal">
+      <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q" placeholder="Buscar: EPS, colegio, comparendo…" aria-label="Buscar modelo"></div>
+      <div class="filt" id="filt"><button type="button" data-c="todos" aria-pressed="true">Todos</button><button type="button" data-c="Salud" aria-pressed="false">Salud</button><button type="button" data-c="Educación" aria-pressed="false">Educación</button><button type="button" data-c="Tránsito" aria-pressed="false">Tránsito</button></div>
+    </div>
+    <div class="lib" id="lib"></div>
+  </div>
+</section>
+
+<!-- CURSOS -->
+<section id="cursos">
+  <div class="wrap soon">
+    <div class="reveal" style="display:grid;gap:18px;min-width:0">
+      <span class="tape">En construcción</span>
+      <span class="eyebrow">Cursos y diplomados</span>
+      <h2>Muy pronto: aprenda con nosotros</h2>
+      <p class="lead">Estamos preparando cursos y diplomados prácticos para abogados, estudiantes y personas que quieren entender sus derechos. Déjenos su correo y le avisamos cuando abramos inscripciones.</p>
+      <form class="wait" id="waitForm"><label class="consent" style="flex-basis:100%;order:3"><input type="checkbox" required><span>Acepto que usen mi correo solo para avisarme de los cursos (<a href="politica-datos.html" target="_blank">política de datos</a>).</span></label><input type="email" id="wEmail" placeholder="Su correo electrónico" required aria-label="Correo para avisos"><button class="btn ink" type="submit">Avísenme</button></form>
+      <p class="note" id="waitOk" hidden role="status"></p>
+    </div>
+    <div class="courses reveal">
+      <div class="course"><span class="lock">Próximamente</span><span class="kind">Diplomado</span><h3>Insolvencia de persona natural</h3><div class="skel" style="width:90%"></div><div class="skel" style="width:70%"></div></div>
+      <div class="course"><span class="lock">Próximamente</span><span class="kind">Curso</span><h3>Derecho de petición y tutela</h3><div class="skel" style="width:85%"></div><div class="skel" style="width:60%"></div></div>
+      <div class="course"><span class="lock">Próximamente</span><span class="kind">Curso</span><h3>Recuperación de cartera en propiedad horizontal</h3><div class="skel" style="width:80%"></div><div class="skel" style="width:65%"></div></div>
+      <div class="course"><span class="lock">Próximamente</span><span class="kind">Diplomado</span><h3>Tecnología para despachos jurídicos</h3><div class="skel" style="width:88%"></div><div class="skel" style="width:55%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" style="padding-top:0">
+  <div class="wrap contact">
+    <div class="reveal" style="display:grid;gap:18px;min-width:0">
+      <span class="eyebrow">Contacto</span>
+      <h2>Venga a visitarnos o escríbanos</h2>
+      <p class="lead">Nos encanta recibirle en la oficina. Si prefiere, agende una cita y le atendemos con más calma. Horario: lunes a viernes, de 9:00 a. m. a 5:00 p. m. (hora de Colombia).</p>
+      <div class="ways">
+        <div class="way"><span class="wi"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><small>Dirección</small><b>Calle 29 #6B-10, barrio Taminaca 2, Santa Marta</b></div><button type="button" class="cp" data-copy="Calle 29 #6B-10, barrio Taminaca 2, Santa Marta, Magdalena">Copiar</button></div>
+        <div class="way"><span class="wi"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><div><small>WhatsApp y llamadas</small><b>314 613 1086</b></div><button type="button" class="cp" data-copy="3146131086">Copiar</button></div>
+        <div class="way"><span class="wi"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="m4 6 8 7 8-7"/></svg></span><div><small>Correo</small><b>abg.carvajalrivera@gmail.com</b></div><button type="button" class="cp" data-copy="abg.carvajalrivera@gmail.com">Copiar</button></div>
+      </div>
+      <div class="mapcard"><iframe title="Mapa de la oficina" src="https://maps.google.com/maps?q=Calle%2029%20%236B-10%2C%20Santa%20Marta%2C%20Magdalena%2C%20Colombia&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0;width:100%;height:100%"></iframe><a class="btn ink" style="padding:10px 14px;font-size:.84rem" href="https://www.google.com/maps/search/?api=1&query=Calle+29+%236B-10+Santa+Marta+Magdalena" target="_blank" rel="noopener">Cómo llegar ↗</a></div>
+      <div class="social" aria-label="Redes sociales">
+        <a href="https://www.facebook.com/carvajalyrivera" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8z"/></svg></a>
+        <a href="https://www.instagram.com/abg_carvajalyrivera" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm5 3.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM17.3 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg></a>
+        <a href="https://www.tiktok.com/@abg_carvajalyrivera" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3h3a4 4 0 0 0 4 4v3a7 7 0 0 1-4-1.3V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3z"/></svg></a>
+        <a href="https://www.youtube.com/@abg_carvajalyrivera" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.6 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-3.8 31 31 0 0 0-.4-3.8zM10 15V9l5.2 3z"/></svg></a>
+      </div>
+    </div>
+    <form class="card reveal" id="form">
+      <div class="lbl">¿Sobre qué tema es su consulta?
+        <div class="topics chips" id="topics"></div>
+      </div>
+      <div class="row2">
+        <label for="fNombre">Nombre completo<input id="fNombre" required autocomplete="name"></label>
+        <label for="fTel">Celular<input id="fTel" inputmode="tel" autocomplete="tel"></label>
+      </div>
+      <label for="fCorreo">Correo electrónico<input id="fCorreo" type="email" required autocomplete="email"></label>
+      <label for="fMsg">Cuéntenos brevemente qué pasó<textarea id="fMsg" rows="4" maxlength="1200"></textarea><span class="note" id="cnt">0 / 1200</span></label>
+      <label class="consent"><input type="checkbox" id="fOk" required><span>Autorizo a Carvajal &amp; Rivera Abogados Asociados a usar mis datos solo para responder esta consulta, según la Ley 1581 de 2012. Puedo pedir que los corrijan o borren cuando quiera. <a href="politica-datos.html" target="_blank">Ver política de tratamiento de datos</a>.</span></label>
+      <button class="btn ink" type="submit">Enviar mi consulta</button>
+      <div class="sent" id="sent" hidden role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="display:grid;gap:8px"><b class="f">Carvajal &amp; Rivera</b><span>Abogados Asociados · Santa Marta, Magdalena</span><span>Calle 29 #6B-10, barrio Taminaca 2</span></div>
+    <div><h4>Herramientas</h4><a href="#insolvencia">¿Aplico a insolvencia?</a><a href="#embargos">Calculadora de embargos</a><a href="#peticiones">Derechos de petición</a><a href="#cursos">Cursos y diplomados</a></div>
+    <div><h4>Contacto</h4><a href="#contacto">314 613 1086</a><a href="#contacto">abg.carvajalrivera@gmail.com</a><a href="#contacto">Lunes a viernes, 9:00 a. m. a 5:00 p. m.</a></div>
+    <div class="legal"><span>© <span id="anio">2026</span> Carvajal &amp; Rivera Abogados Asociados · <a href="politica-datos.html" style="display:inline">Política de tratamiento de datos</a></span><span>Las herramientas de esta página son orientativas y no reemplazan la asesoría de un abogado.</span></div>
+  </div>
+</footer>
+
+<!-- modal reseña -->
+<div class="modal" id="modal" hidden>
+  <form class="mbox" id="revForm">
+    <div class="mhead"><h3>Cuéntenos cómo le fue</h3><button type="button" class="x" id="closeRev" aria-label="Cerrar">×</button></div>
+    <div class="lbl">Su calificación<div class="pick" id="pick"></div></div>
+    <label for="rNombre">Su nombre (así aparecerá)<input id="rNombre" required placeholder="Ej.: Juan B."></label>
+    <label for="rTema">¿Qué le ayudamos a resolver?<select id="rTema"><option>Insolvencia</option><option>Familia</option><option>Civil</option><option>Laboral</option><option>Tránsito</option><option>Pensiones</option><option>Penal</option><option>Recuperación de cartera</option><option>Otro</option></select></label>
+    <label for="rTxt">Su opinión<textarea id="rTxt" rows="4" required maxlength="600"></textarea></label>
+    <label class="consent"><input type="checkbox" required><span>Autorizo que publiquen mi nombre y mi opinión en esta página, según la <a href="politica-datos.html" target="_blank">política de datos</a>. No incluyan datos de mi proceso.</span></label>
+    <button class="btn gold" type="submit">Enviar reseña</button>
+    <div class="sent" id="revOk" hidden role="status"></div>
+  </form>
+</div>
+
+<!-- WhatsApp -->
+<div class="wapanel" id="wapanel" hidden role="dialog" aria-label="Chat de WhatsApp">
+  <div class="wah"><img src="img/logo_cr.png" alt=""><div><b>Carvajal &amp; Rivera</b><small id="waEstado">Respondemos en horario de oficina</small></div><button type="button" id="waClose" aria-label="Cerrar">×</button></div>
+  <div class="wab" id="wab"></div>
+  <div class="waf">Le responde una persona de nuestro equipo · 314 613 1086</div>
+</div>
+<button class="wa" id="waBtn" aria-label="Escríbanos por WhatsApp"><span class="n">1</span><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></button>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const TZ="America/Bogota", WA="573146131086";
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const cop=n=>"$ "+Math.round(n).toLocaleString("es-CO");
+  const num=v=>Number(String(v).replace(/[^\d]/g,""))||0;
+  const hoyCO=()=>new Date().toLocaleDateString("en-CA",{timeZone:TZ});
+  const fechaLarga=iso=>new Date(iso+"T12:00:00").toLocaleDateString("es-CO",{day:"numeric",month:"long",year:"numeric"});
+  const diasEntre=(a,b)=>Math.round((Date.parse(b+"T00:00:00Z")-Date.parse(a+"T00:00:00Z"))/864e5);
+  const menos=d=>new Date(Date.parse(hoyCO()+"T00:00:00Z")-d*864e5).toISOString().slice(0,10);
+  const waLink=t=>"https://wa.me/"+WA+"?text="+encodeURIComponent(t);
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  function seg(id,cb){const b=$$("#"+id+" button");b.forEach(x=>x.onclick=()=>{b.forEach(y=>y.setAttribute("aria-pressed",y===x));cb()});return()=>b.find(x=>x.getAttribute("aria-pressed")==="true").dataset.v;}
+  $("#anio").textContent=new Date().toLocaleDateString("en-CA",{timeZone:TZ}).slice(0,4);
+
+  /* ---- estado abierto/cerrado (hora de Colombia) */
+  function abierto(){const p=Object.fromEntries(new Intl.DateTimeFormat("en-US",{timeZone:TZ,weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date()).map(x=>[x.type,x.value]));const h=(+p.hour%24)+(+p.minute)/60;return !["Sat","Sun"].includes(p.weekday)&&h>=9&&h<17;}
+  function estado(){const on=abierto(),hora=new Date().toLocaleTimeString("es-CO",{timeZone:TZ,hour:"numeric",minute:"2-digit"});$("#dot").classList.toggle("on",on);$("#estado").textContent=(on?"Abierto ahora":"Cerrado ahora")+" · "+hora;$("#waEstado").textContent=on?"En línea · respondemos en minutos":"Fuera de horario · le respondemos mañana";}
+  estado();setInterval(estado,30000);
+
+  /* ---- barra de progreso, menú activo, menú móvil */
+  const secs=["nosotros","areas","insolvencia","embargos","resenas","peticiones","cursos","contacto"].map(id=>document.getElementById(id));
+  function onScroll(){const h=document.documentElement;$("#prog").style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%";
+    let cur="";secs.forEach(s=>{if(s.getBoundingClientRect().top<140)cur=s.id});$$("nav.menu a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+cur));}
+  addEventListener("scroll",onScroll,{passive:true});onScroll();
+  const dr=$("#drawer"),bg=$("#burger");bg.onclick=()=>{const o=!dr.classList.contains("open");dr.classList.toggle("open",o);bg.setAttribute("aria-expanded",o)};
+  $$("#drawer a").forEach(a=>a.onclick=()=>{dr.classList.remove("open");bg.setAttribute("aria-expanded",false)});
+
+  /* ---- aparición suave (visible siempre; solo se desplaza) */
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+  $$(".reveal").forEach(el=>{if(el.getBoundingClientRect().top<innerHeight)el.classList.add("in");else io.observe(el)});
+
+  /* ---- red de partículas doradas en la portada */
+  (function(){const c=$("#red"),x=c.getContext("2d");let W,H,P=[],m={x:-999,y:-999},dpr=Math.min(2,devicePixelRatio||1);
+    function size(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);const n=Math.round(Math.min(90,W*H/14000));P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.6+.6}));}
+    function draw(){x.clearRect(0,0,W,H);for(const p of P){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
+      for(let i=0;i<P.length;i++){const a=P[i];for(let j=i+1;j<P.length;j++){const b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<130){x.strokeStyle="rgba(201,162,77,"+(.22*(1-d/130))+")";x.lineWidth=1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke();}}
+        const dm=Math.hypot(a.x-m.x,a.y-m.y);if(dm<170){x.strokeStyle="rgba(230,198,127,"+(.5*(1-dm/170))+")";x.beginPath();x.moveTo(a.x,a.y);x.lineTo(m.x,m.y);x.stroke();}
+        x.fillStyle="rgba(230,198,127,.75)";x.beginPath();x.arc(a.x,a.y,a.r,0,7);x.fill();}
+      if(!reduce)requestAnimationFrame(draw);}
+    size();draw();addEventListener("resize",size);
+    c.parentElement.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect();m={x:e.clientX-r.left,y:e.clientY-r.top}});
+    c.parentElement.addEventListener("pointerleave",()=>m={x:-999,y:-999});})();
+
+  /* ---- palabra que se escribe sola */
+  (function(){const w=["su familia","su patrimonio","su pensión","su tranquilidad","sus derechos"],el=$("#rot");if(reduce)return;let i=0,k=w[0].length,del=true;
+    setTimeout(function t(){const s=w[i];if(del){k--;if(k<=0){del=false;i=(i+1)%w.length;}}else{k++;if(k>=w[i].length){del=true;el.textContent=w[i].slice(0,k);return setTimeout(t,2200);}}el.textContent=(del?s:w[i]).slice(0,k)||"​";setTimeout(t,del?45:85);},2400);})();
+
+  /* ---- contadores */
+  const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,n=+el.dataset.count,suf=el.dataset.suffix||"";let t0=null;const step=ts=>{t0=t0||ts;const p=Math.min(1,(ts-t0)/1200);el.textContent=Math.round(n*(1-Math.pow(1-p,3)))+(p===1?suf:"");if(p<1)requestAnimationFrame(step)};reduce?el.textContent=n+suf:requestAnimationFrame(step);co.unobserve(el)}),{threshold:.5});
+  $$("[data-count]").forEach(el=>co.observe(el));
+
+  /* ---- foto con inclinación 3D */
+  (function(){const ph=$("#photo");if(reduce||matchMedia("(hover: none)").matches)return;ph.addEventListener("pointermove",e=>{const r=ph.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;ph.style.transform=`rotateY(${(px-.5)*8}deg) rotateX(${(.5-py)*8}deg)`;ph.style.setProperty("--mx",px*100+"%");ph.style.setProperty("--my",py*100+"%")});ph.addEventListener("pointerleave",()=>ph.style.transform="");})();
+
+  /* ---- misión, visión, valores */
+  const tabs={mision:"<p>Brindar asesoría y representación jurídica cercana, clara y responsable, para que nuestros clientes tomen decisiones informadas y defiendan sus derechos con tranquilidad.</p>",
+    vision:"<p>Ser la firma de referencia en el Caribe colombiano por su trato humano, su rigor jurídico y el uso de la tecnología para acercar la justicia a las personas.</p>",
+    valores:'<div class="values">'+[["Honestidad","Le decimos la verdad, aunque no sea lo que espera."],["Cercanía","Usted habla directamente con sus abogados."],["Compromiso","Su caso es nuestra prioridad hasta el final."],["Confidencialidad","Lo que nos cuenta se queda con nosotros."],["Rigor jurídico","Estudiamos cada detalle antes de actuar."],["Respeto","Por usted, su tiempo y su historia."]].map(v=>`<div class="value"><b>${v[0]}</b><small>${v[1]}</small></div>`).join("")+"</div>"};
+  function tab(k){$$(".tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.t===k));$("#tabpanel").innerHTML=`<div class="fade">${tabs[k]}</div>`;}
+  $$(".tabs button").forEach(b=>b.onclick=()=>tab(b.dataset.t));tab("mision");
+
+  /* ---- áreas interactivas */
+  const ic={fam:'<path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm8 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM3 20c0-3 2.2-5.5 5-5.5s5 2.5 5 5.5m1-1c.3-2.4 1.8-4 3.5-4s3.5 1.7 3.5 4.5"/>',civ:'<path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6zM8 21h8"/>',ins:'<path d="M4 19h16M6 16V9M10 16V6M14 16v-4M18 16V8"/>',lab:'<path d="M4 8h16v11H4zM9 8V5h6v3M4 13h16"/>',car:'<path d="M3 10 12 4l9 6v10H3zM9 20v-6h6v6"/>',con:'<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/>',tra:'<path d="M5 16V9l2-4h10l2 4v7M3 16h18v3H3zM5 11h14"/>',adm:'<path d="M3 10 12 4l9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/>',pen2:'<circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-7 7-7s7 3 7 7"/>',pen:'<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/>'};
+  const areas=[
+    ["ins","Insolvencia","Si las deudas ya no le dejan vivir, la ley le permite negociar con todos sus acreedores a la vez, frenar los embargos y pagar en cuotas que sí pueda cumplir.",["Negociación de deudas ante conciliador","Liquidación patrimonial","Suspensión de embargos y procesos de cobro","Revisión de si usted cumple los requisitos"]],
+    ["fam","Familia","Acompañamos los momentos más delicados con respeto y sin juzgar, buscando siempre el bienestar de los niños y de la familia.",["Divorcio y cesación de efectos civiles","Custodia, visitas y cuota de alimentos","Sucesiones y particiones","Reconocimiento o impugnación de paternidad"]],
+    ["civ","Civil","Defendemos su patrimonio y sus acuerdos, desde una conciliación hasta un proceso ante el juez.",["Procesos ejecutivos y de cobro","Restitución de inmueble arrendado","Pertenencia y conflictos de tierras","Responsabilidad civil y daños"]],
+    ["lab","Laboral","Protegemos los derechos de quien trabaja y orientamos a quien contrata, para que todo quede en regla.",["Despidos sin justa causa","Liquidación de prestaciones sociales","Acoso laboral","Reclamaciones ante el empleador"]],
+    ["car","Recuperación de cartera","Somos aliados de administradores de edificios y conjuntos residenciales para recuperar cuotas en mora de forma ágil y respetuosa.",["Cobro prejurídico de cuotas de administración","Procesos ejecutivos de propiedad horizontal","Acuerdos de pago","Informes periódicos a la administración"]],
+    ["con","Contractual","Un buen contrato evita pleitos. Lo redactamos, lo revisamos y lo defendemos si alguien incumple.",["Redacción y revisión de contratos","Promesas de compraventa","Arrendamientos","Reclamos por incumplimiento"]],
+    ["tra","Tránsito y transporte","Le ayudamos con multas, fotomultas y accidentes para que no pague lo que no debe.",["Prescripción de comparendos","Impugnación de fotomultas","Accidentes de tránsito y SOAT","Trámites ante la Secretaría de Tránsito"]],
+    ["adm","Administrativo","Le ayudamos a hacer valer sus derechos frente al Estado.",["Derechos de petición y tutelas","Demandas contra entidades públicas","Reclamos ante EPS y entidades","Acciones populares y de grupo"]],
+    ["pen2","Pensiones","Revisamos su historia laboral para que reciba la pensión que le corresponde.",["Reconocimiento de pensión","Reliquidación","Pensión de sobrevivientes","Reclamos ante Colpensiones y fondos"]],
+    ["pen","Penal","Le acompañamos con seriedad y reserva, como víctima o como persona investigada.",["Defensa en todas las etapas del proceso","Representación de víctimas","Denuncias y querellas","Conciliación en delitos querellables"]]
+  ];
+  $("#alist").innerHTML=areas.map((a,i)=>`<button role="tab" type="button" data-i="${i}" aria-selected="${i===0}"><svg viewBox="0 0 24 24">${ic[a[0]]}</svg>${a[1]}</button>`).join("");
+  function area(i){const a=areas[i];$$("#alist button").forEach(b=>b.setAttribute("aria-selected",+b.dataset.i===i));
+    $("#apanel").innerHTML=`<svg class="bigic" viewBox="0 0 24 24">${ic[a[0]]}</svg><div class="fade" style="display:grid;gap:18px;position:relative"><span class="eyebrow">Área ${String(i+1).padStart(2,"0")} de ${areas.length}</span><h3>${a[1]}</h3><p>${a[2]}</p><ul>${a[3].map(x=>`<li>${x}</li>`).join("")}</ul><div class="cta"><a class="btn gold" href="${waLink("Hola, quisiera una asesoría en "+a[1].toLowerCase()+".")}" target="_blank" rel="noopener">Consultar por WhatsApp</a><a class="btn ghost" href="#contacto" data-topic="${a[1]}">Escribir mi caso</a></div></div>`;}
+  $("#alist").addEventListener("click",e=>{const b=e.target.closest("button");if(b)area(+b.dataset.i)});area(0);
+  document.addEventListener("click",e=>{const t=e.target.closest("[data-topic]");if(t)setTopic(t.dataset.topic)});
+
+  /* ---- INSOLVENCIA (Ley 2445 de 2025: arts. 538 y 539 CGP) */
+  const tipos=["Banco","Casa de cobranza","Cooperativa","Persona natural","Otro"];
+  let deudas=[{a:"Banco Ejemplo S.A.",t:"Banco",v:18500000,u:menos(190),f:menos(160)},{a:"Cooperativa Ejemplo",t:"Cooperativa",v:7200000,u:menos(150),f:menos(120)},{a:"Tarjeta de crédito",t:"Banco",v:4300000,u:menos(40),f:menos(25)}];
+  let procesos=0;
+  const moraDe=d=>d.f?Math.max(0,diasEntre(d.f,hoyCO())):0;
+  const moraCls=n=>n>90?"alta":n>0?"baja":"cero";
+  function filaIns(d,i){const n=moraDe(d);return `<tr data-i="${i}"><td><input data-k="a" value="${esc(d.a)}" aria-label="Acreedor" placeholder="Nombre del acreedor"></td><td><select data-k="t" aria-label="Tipo">${tipos.map(t=>`<option${t===d.t?" selected":""}>${t}</option>`).join("")}</select></td><td class="num"><input data-k="v" value="${d.v?cop(d.v):""}" inputmode="numeric" aria-label="Saldo" placeholder="$ 0"></td><td><input data-k="u" type="date" value="${d.u}" aria-label="Último pago"></td><td><input data-k="f" type="date" value="${d.f}" aria-label="Fecha de vencimiento"></td><td><span class="mora ${moraCls(n)}">${n?n+" días":"Al día"}</span></td><td><button type="button" class="x" aria-label="Quitar deuda">×</button></td></tr>`;}
+  const tb=$("#deudas");
+  function pintarIns(){tb.innerHTML=deudas.map(filaIns).join("");calcIns();}
+  tb.addEventListener("input",e=>{const k=e.target.dataset.k;if(!k)return;const tr=e.target.closest("tr"),i=+tr.dataset.i;if(k==="v"){const n=num(e.target.value);deudas[i].v=n;e.target.value=n?cop(n):"";}else deudas[i][k]=e.target.value;
+    if(k==="f"){const n=moraDe(deudas[i]),s=tr.querySelector(".mora");s.className="mora "+moraCls(n);s.textContent=n?n+" días":"Al día";}calcIns();});
+  tb.addEventListener("change",e=>{if(e.target.dataset.k==="t")deudas[+e.target.closest("tr").dataset.i].t=e.target.value;});
+  tb.addEventListener("click",e=>{if(e.target.classList.contains("x")){deudas.splice(+e.target.closest("tr").dataset.i,1);pintarIns();}});
+  $("#addDeuda").onclick=()=>{deudas.push({a:"",t:"Banco",v:0,u:"",f:""});pintarIns();tb.lastElementChild.querySelector("input").focus();};
+  const comer=seg("segCom",calcIns);
+  $("#pMas").onclick=()=>{procesos=Math.min(20,procesos+1);$("#procesos").textContent=procesos;calcIns()};
+  $("#pMenos").onclick=()=>{procesos=Math.max(0,procesos-1);$("#procesos").textContent=procesos;calcIns()};
+  function paso(s){$$("#wiz button").forEach(b=>{const n=+b.dataset.s;b.toggleAttribute("aria-current",n===s);if(n===s)b.setAttribute("aria-current","step");b.classList.toggle("done",n<s)});$$(".pane").forEach(p=>p.hidden=+p.dataset.p!==s);if(s===2)calcIns(true);}
+  $$("#wiz button").forEach(b=>b.onclick=()=>paso(+b.dataset.s));
+  $$("[data-go]").forEach(b=>b.onclick=()=>paso(+b.dataset.go));
+  function calcIns(anim){
+    const ds=deudas.filter(d=>d.v>0).map(d=>({...d,dias:moraDe(d)}));
+    const total=ds.reduce((s,d)=>s+d.v,0), mora=ds.filter(d=>d.dias>90);
+    const acr=new Set(mora.map(d=>d.a.trim().toLowerCase())).size, enMora=mora.reduce((s,d)=>s+d.v,0);
+    const pct=total?enMora*100/total:0;
+    const c1=comer()==="no", c2=(mora.length>=2&&acr>=2)||procesos>=2, c3=pct>=30, ok=c1&&c2&&c3;
+    const li=(b,t)=>`<li class="${b?"y":"n"}"><i>${b?"✓":"✕"}</i><span>${t}</span></li>`;
+    const C=2*Math.PI*90, off=C*(1-Math.min(100,pct)/100);
+    $("#outIns").innerHTML=`
+      <div class="gauge"><svg viewBox="0 0 220 220"><defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#6b7b3a"/><stop offset="1" stop-color="#c9a24d"/></linearGradient></defs><circle class="bg" cx="110" cy="110" r="90"/><circle class="fg" id="gfg" cx="110" cy="110" r="90" stroke-dasharray="${C}" stroke-dashoffset="${anim?C:off}"/><circle class="mark" cx="110" cy="110" r="90" stroke-dasharray="2 ${C}" stroke-dashoffset="${-C*.3}"/></svg>
+      <div class="lab"><b>${pct.toFixed(0)} %</b><span>de su deuda está en mora<br>de más de 90 días</span><span style="font-size:.7rem">mínimo exigido: 30 %</span></div></div>
+      <div style="display:grid;gap:16px;min-width:0">
+        <div class="verdict ${ok?"si":"no"}"><b>${ok?"Sí podría acogerse a la insolvencia":"Por ahora no cumple los requisitos"}</b><span>${ok?"Con lo que nos contó, usted cumple los requisitos de la ley. El siguiente paso es revisar sus documentos con un abogado.":"Revise abajo qué requisito falta. Si su situación cambia, vuelva a hacer la prueba o escríbanos."}</span></div>
+        <ul class="checks">${li(c1,"Es persona natural <b>no comerciante</b>.")}${li(c2,`Tiene <b>dos o más deudas con más de 90 días de mora</b> con dos o más acreedores, o dos o más demandas de cobro. <span class="note">(${mora.length} en mora · ${acr} acreedor${acr===1?"":"es"} · ${procesos} demanda${procesos===1?"":"s"})</span>`)}${li(c3,"Esas deudas en mora suman <b>al menos el 30 %</b> de todo lo que debe.")}</ul>
+        <div class="kv"><span>Deuda total</span><span>${cop(total)}</span><span>En mora de más de 90 días</span><span>${cop(enMora)}</span></div>
+        <p class="note">Basado en los artículos 538 y 539 del Código General del Proceso, modificados por la Ley 2445 de 2025. Es una orientación inicial; la decisión final la toma el conciliador o el juez.</p>
+      </div>`;
+    if(anim)requestAnimationFrame(()=>requestAnimationFrame(()=>{const g=$("#gfg");if(g)g.style.strokeDashoffset=off}));
+    $("#ctaIns").href=waLink(ok?"Hola, hice la prueba de insolvencia en su página y me salió que sí podría acogerme. Quisiera que revisen mi caso.":"Hola, hice la prueba de insolvencia en su página y quisiera asesoría sobre mis deudas.");
+    $("#ctaIns").target="_blank";
+  }
+  $("#hoyIns").textContent=fechaLarga(hoyCO());
+
+  /* ---- EMBARGOS (CST 154, 155, 156, 344; Ley 100 art. 134; CGP 594) */
+  const SMLMV=1750905; // salario mínimo 2026 (confirmar)
+  $("#smlmvTxt").textContent=cop(SMLMV)+" (2026)";
+  const sal=$("#salario"), rg=$("#rango"), saldoIn=$("#saldoEmb");
+  const ingreso=seg("segIng",calcEmb);
+  function setRange(v){rg.value=Math.min(+rg.max,Math.max(+rg.min,v));rg.style.setProperty("--p",((rg.value-rg.min)/(rg.max-rg.min)*100)+"%");}
+  sal.addEventListener("input",()=>{const n=num(sal.value);sal.value=n?cop(n):"";setRange(n);calcEmb()});
+  rg.addEventListener("input",()=>{sal.value=cop(+rg.value);rg.style.setProperty("--p",((rg.value-rg.min)/(rg.max-rg.min)*100)+"%");calcEmb()});
+  saldoIn.addEventListener("input",()=>{const n=num(saldoIn.value);saldoIn.value=n?cop(n):"";calcEmb()});
+  $$("#tiposEmb .chip").forEach(c=>c.onclick=()=>{c.setAttribute("aria-pressed",c.getAttribute("aria-pressed")!=="true");calcEmb()});
+  function calcEmb(){
+    const s=num(sal.value), pension=ingreso()==="pension", on=t=>$(`#tiposEmb [data-t="${t}"]`).getAttribute("aria-pressed")==="true";
+    const ordin=on("banco")||on("cobranza"), espec=on("coop")||on("alim"), saldo=num(saldoIn.value);
+    $("#enMin").textContent=s?(s/SMLMV).toFixed(1).replace(".",",")+" salarios mínimos":"";
+    let total=0, prot=Math.min(s,SMLMV), msg;
+    if(espec){total=s*.5;prot=s-total;}else if(ordin&&!pension){total=Math.max(0,s-SMLMV)/5;}
+    if(saldo)total=Math.min(total,saldo);
+    const queda=s-total, meses=total&&saldo?Math.ceil(saldo/total):0;
+    if(!s)msg="Escriba su salario o pensión para ver el cálculo.";
+    else if(!ordin&&!espec)msg="Marque al menos un tipo de deuda.";
+    else if(!total&&pension)msg="Su pensión no se puede embargar por deudas con bancos ni casas de cobranza.";
+    else if(!total)msg="Su ingreso no supera el salario mínimo, así que bancos y casas de cobranza no se lo pueden embargar.";
+    else msg=espec?"Como tiene deudas con cooperativa o de alimentos, la ley permite embargar hasta la mitad de su ingreso, incluido el mínimo.":"Solo se puede embargar la quinta parte de lo que gana por encima del salario mínimo, y únicamente si un juez lo ordena.";
+    const C=2*Math.PI*60, fE=s?total/s:0, fM=s?Math.min(prot,s)/s:0;
+    $("#outEmb").innerHTML=`<span class="eyebrow">Le podrían embargar al mes</span><div class="big">${cop(total)}</div><p style="font-size:.93rem">${msg}</p>
+      <div class="donut"><svg viewBox="0 0 150 150"><circle cx="75" cy="75" r="60" stroke="#e6e9ee"/><circle cx="75" cy="75" r="60" stroke="#18335e" stroke-dasharray="${C*(1-fE)} ${C}"/><circle cx="75" cy="75" r="60" stroke="#b3412f" stroke-dasharray="${C*fE} ${C}" stroke-dashoffset="${-C*(1-fE)}"/></svg>
+      <div class="legend"><span><i style="background:#18335e"></i>Le queda: <b>${cop(queda)}</b></span><span><i style="background:#b3412f"></i>Embargo máximo: <b>${cop(total)}</b></span><span>Parte protegida: <b>${cop(prot)}</b></span>${meses?`<span>Meses aprox. para cubrir la deuda: <b>${meses}</b></span>`:""}</div></div>
+      <p class="note">Calculado el ${new Date().toLocaleString("es-CO",{timeZone:TZ,dateStyle:"long",timeStyle:"short"})}, hora de Colombia. Fundamento: arts. 25 y 53 de la Constitución; arts. 154, 155, 156 y 344 del Código Sustantivo del Trabajo; art. 134 de la Ley 100 de 1993; art. 594 del Código General del Proceso. Es una orientación; cada caso puede tener particularidades.</p>`;
+  }
+  setRange(num(sal.value));
+
+  /* ---- RESEÑAS (tomadas de la página actual de la firma) */
+  const revs=[
+    {n:"Germán Cervantes",f:"11/10/2025",t:"Conciliación",x:"Son unos duros en las asesorías, muy buena atención, amables hasta más no decir y con mucho conocimiento sobre el tema. Me ayudaron con mi proceso de conciliación para recuperar la platica que ya veía perdida."},
+    {n:"Juan Bernal",f:"15/12/2025",t:"Insolvencia",x:"Mi proceso va caminando exitosamente. Son personas serias, responsables y siempre me dicen la verdad. Gracias a ellos he podido mejorar mi vida financiera."},
+    {n:"Geraldine Andrade",f:"18/01/2026",t:"Insolvencia",x:"Gracias a ellos he podido ver la luz con mi proceso de insolvencia. Desde que ellos iniciaron he podido estar mejor económicamente, porque ya no me descuentan el dinero que tanto me hacía falta para mí y mis hijos. Muchísimas gracias."}
+  ];
+  $("#track").innerHTML=revs.map(r=>`<article class="rev"><div class="stars">★★★★★</div><q>${r.x}</q><div class="who"><span class="av">${r.n[0]}</span><div><b>${r.n}</b><small>${r.f}</small></div><span class="tagr">${r.t}</span></div></article>`).join("");
+  $("#dots").innerHTML=revs.map((_,i)=>`<button type="button" aria-label="Reseña ${i+1}"></button>`).join("");
+  let ri=0,timer;
+  function go(i){ri=(i+revs.length)%revs.length;$("#track").style.transform=`translateX(${-ri*100}%)`;$$("#dots button").forEach((d,k)=>d.setAttribute("aria-current",k===ri));}
+  function auto(){clearInterval(timer);if(!reduce)timer=setInterval(()=>go(ri+1),6500);}
+  $("#prev").onclick=()=>{go(ri-1);auto()};$("#next").onclick=()=>{go(ri+1);auto()};
+  $$("#dots button").forEach((d,k)=>d.onclick=()=>{go(k);auto()});
+  let sx=null;$("#track").addEventListener("pointerdown",e=>sx=e.clientX);$("#track").addEventListener("pointerup",e=>{if(sx!==null&&Math.abs(e.clientX-sx)>40){go(ri+(e.clientX<sx?1:-1));auto()}sx=null});
+  go(0);auto();
+  const modal=$("#modal");let stars=5;
+  $("#pick").innerHTML=[1,2,3,4,5].map(n=>`<button type="button" data-n="${n}" aria-label="${n} estrellas">★</button>`).join("");
+  function paint(n){$$("#pick button").forEach(b=>b.classList.toggle("on",+b.dataset.n<=n));}
+  $$("#pick button").forEach(b=>{b.onclick=()=>{stars=+b.dataset.n;paint(stars)};b.onmouseenter=()=>paint(+b.dataset.n)});$("#pick").onmouseleave=()=>paint(stars);paint(5);
+  $("#openRev").onclick=()=>{modal.hidden=false;$("#rNombre").focus()};
+  $("#closeRev").onclick=()=>modal.hidden=true;
+  modal.addEventListener("click",e=>{if(e.target===modal)modal.hidden=true});
+  addEventListener("keydown",e=>{if(e.key==="Escape"){modal.hidden=true;$("#wapanel").hidden=true}});
+  $("#revForm").addEventListener("submit",async e=>{e.preventDefault();const b=e.target.querySelector('button[type=submit]');b.disabled=true;
+    try{await enviar({Nombre:$("#rNombre").value,Calificacion:stars+" de 5 estrellas",Tema:$("#rTema").value,Opinion:$("#rTxt").value,Autoriza_publicar:"Sí",Fecha:new Date().toLocaleString("es-CO",{timeZone:TZ})},"Nueva reseña para revisar ("+stars+" estrellas)");aviso($("#revOk"),true,"¡Gracias! Recibimos su reseña. La publicaremos después de revisarla.");e.target.reset();stars=5;paint(5);}
+    catch(_){aviso($("#revOk"),false,FALLO)}b.disabled=false;});
+
+  /* ---- BIBLIOTECA */
+  const docs=[
+    {f:"derecho_peticion_salud_eps.docx",c:"Salud",t:"Autorización de servicio o medicamento",d:"Para pedirle a su EPS que autorice una cita, un procedimiento o un medicamento que le ordenó su médico.",k:"eps salud medicamento cita procedimiento"},
+    {f:"derecho_peticion_educacion.docx",c:"Educación",t:"Cupo escolar o certificados",d:"Para solicitar a un colegio o a la Secretaría de Educación un cupo, un certificado o la entrega de documentos.",k:"colegio educación cupo certificado matrícula"},
+    {f:"derecho_peticion_transito_prescripcion.docx",c:"Tránsito",t:"Prescripción de comparendo",d:"Para pedir a la Secretaría de Tránsito que declare prescrita una multa antigua y la retire del SIMIT.",k:"tránsito comparendo multa fotomulta simit"}
+  ];
+  let cat="todos";
+  function lib(){const q=$("#q").value.trim().toLowerCase();const l=docs.filter(d=>(cat==="todos"||d.c===cat)&&(!q||(d.t+" "+d.d+" "+d.k+" "+d.c).toLowerCase().includes(q)));
+    $("#lib").innerHTML=l.length?l.map(d=>`<article class="doc"><div class="top2"><span class="ico">DOCX</span><span class="cat">${d.c}</span></div><h3>${d.t}</h3><p>${d.d}</p><span class="meta">Word · gratis · Ley 1755 de 2015</span><a class="btn gold" href="documentos/${d.f}" download>Descargar Word</a></article>`).join(""):`<p class="empty">No encontramos un modelo con esa búsqueda. Escríbanos y le ayudamos a redactarlo.</p>`;}
+  $("#q").addEventListener("input",lib);
+  $$("#filt button").forEach(b=>b.onclick=()=>{cat=b.dataset.c;$$("#filt button").forEach(x=>x.setAttribute("aria-pressed",x===b));lib()});lib();
+
+
+  /* ---- envío al correo con FormSubmit (gratis) */
+  async function enviar(datos,asunto){
+    const r=await fetch("https://formsubmit.co/ajax/abg.carvajalrivera@gmail.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},
+      body:JSON.stringify({...datos,_subject:asunto,_template:"table",_captcha:"false",_honey:datos._honey||""})});
+    const j=await r.json().catch(()=>({}));if(!r.ok||String(j.success)==="false")throw new Error(j.message||"error");return j;}
+  function aviso(el,ok,txt){el.hidden=false;el.textContent=txt;el.style.background=ok?"":"var(--no-bg)";el.style.color=ok?"":"#7a2618";}
+  const FALLO="No pudimos enviar su mensaje. Por favor escríbanos por WhatsApp al 314 613 1086 o al correo abg.carvajalrivera@gmail.com.";
+
+  /* ---- CURSOS */
+  $("#waitForm").addEventListener("submit",async e=>{e.preventDefault();const b=e.target.querySelector("button");b.disabled=true;
+    try{await enviar({Correo:$("#wEmail").value,Interes:"Avisarme cuando abran cursos y diplomados",Fecha:new Date().toLocaleString("es-CO",{timeZone:TZ})},"Nuevo interesado en cursos y diplomados");aviso($("#waitOk"),true,"Listo. Le escribiremos a ese correo cuando abramos inscripciones.");e.target.reset();}
+    catch(_){aviso($("#waitOk"),false,FALLO)}b.disabled=false;});
+
+  /* ---- CONTACTO */
+  const temas=["Insolvencia","Familia","Civil","Laboral","Recuperación de cartera","Tránsito","Pensiones","Penal","Otro"];
+  $("#topics").innerHTML=temas.map((t,i)=>`<button type="button" class="chip" data-v="${t}" aria-pressed="${i===0}">${t}</button>`).join("");
+  function setTopic(t){$$("#topics .chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.v===t||(!temas.includes(t)&&c.dataset.v==="Otro")))}
+  $$("#topics .chip").forEach(c=>c.onclick=()=>setTopic(c.dataset.v));
+  $("#fMsg").addEventListener("input",e=>$("#cnt").textContent=e.target.value.length+" / 1200");
+  $("#form").addEventListener("submit",async e=>{e.preventDefault();const b=e.target.querySelector('button[type=submit]');b.disabled=true;b.textContent="Enviando…";
+    const tema=($$("#topics .chip").find(c=>c.getAttribute("aria-pressed")==="true")||{}).dataset?.v||"Otro";
+    try{await enviar({Nombre:$("#fNombre").value,Celular:$("#fTel").value,Correo:$("#fCorreo").value,Tema:tema,Mensaje:$("#fMsg").value,Autoriza_datos:"Sí (Ley 1581 de 2012)",Fecha:new Date().toLocaleString("es-CO",{timeZone:TZ})},"Nueva consulta desde la página web: "+tema);
+      aviso($("#sent"),true,"¡Gracias! Recibimos su consulta. Le responderemos en horario de oficina (lunes a viernes, 9:00 a. m. a 5:00 p. m.).");e.target.reset();$("#cnt").textContent="0 / 1200";setTopic("Insolvencia");}
+    catch(_){aviso($("#sent"),false,FALLO)}b.disabled=false;b.textContent="Enviar mi consulta";});
+  $$(".cp").forEach(b=>b.onclick=()=>{const done=()=>{b.textContent="Copiado";b.classList.add("ok");setTimeout(()=>{b.textContent="Copiar";b.classList.remove("ok")},1600)};
+    try{navigator.clipboard.writeText(b.dataset.copy).then(done,()=>{const r=document.createRange();r.selectNodeContents(b.previousElementSibling.querySelector("b"));getSelection().removeAllRanges();getSelection().addRange(r)})}catch(_){}});
+
+  /* ---- WhatsApp: panel de conversación */
+  const wp=$("#wapanel"),wb=$("#wab");let abiertoWa=false;
+  const hora=()=>new Date().toLocaleTimeString("es-CO",{timeZone:TZ,hour:"numeric",minute:"2-digit"});
+  function abrirWa(){wp.hidden=false;$("#waBtn .n")?.remove();if(abiertoWa)return;abiertoWa=true;
+    wb.innerHTML=`<div class="bub typing"><i></i><i></i><i></i></div>`;
+    setTimeout(()=>{wb.innerHTML=`<div class="bub">¡Hola! 👋 Somos Darío y Mileidi, de Carvajal &amp; Rivera. ¿En qué le podemos ayudar?<small>${hora()}</small></div><div class="qr">${[["Tengo muchas deudas","Hola, tengo muchas deudas y quisiera saber si puedo acogerme a la insolvencia."],["Me embargaron el salario","Hola, me están embargando el salario y quisiera asesoría."],["Agendar una cita","Hola, quisiera agendar una cita en la oficina."],["Otra consulta","Hola, quisiera hacer una consulta."]].map(q=>`<a href="${waLink(q[1])}" target="_blank" rel="noopener">${q[0]}</a>`).join("")}</div>`;},reduce?0:1100);}
+  $("#waBtn").onclick=()=>wp.hidden?abrirWa():wp.hidden=true;
+  $("#waClose").onclick=()=>wp.hidden=true;
+
+  pintarIns();calcEmb();
+})();
+</script>
+</body>
+</html>
