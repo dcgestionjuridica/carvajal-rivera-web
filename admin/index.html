@@ -508,7 +508,7 @@ $("#guardar").onclick=async()=>{
 /* ---------------- arranque ---------------- */
 (async function(){
   const h=new URLSearchParams(location.hash.slice(1));
-  if(h.get("access_token")&&h.get("type")==="recovery"){
+  if(h.get("access_token")&&["recovery","invite","signup","magiclink"].includes(h.get("type"))){
     guardarSesion({token:h.get("access_token"),refresco:h.get("refresh_token"),vence:Date.now()+(+h.get("expires_in")||3600)*1000,correo:""});
     history.replaceState(null,"",location.pathname);
     $("#vIngreso").hidden=true;$("#vNueva").hidden=false;return;
