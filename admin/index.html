@@ -163,8 +163,8 @@ td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 <script>
 (function(){
 "use strict";
-const SB="https://bopiajeyzystoaumishw.supabase.co";
-const KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcGlhamV5enlzdG9hdW1pc2h3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA2OTQ5NzksImV4cCI6MjEwNjI3MDk3OX0.F4S0iiUhSYhLkE5x2cPAld75kKBcOcLrmTZGtmVs5F4";
+const SB=""; // base propia de la página (pendiente)
+const KEY="";
 const BUCKET="web-carvajal-rivera";
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -209,7 +209,7 @@ function traducir(e){
 }
 
 $("#fLogin").addEventListener("submit",async e=>{
-  e.preventDefault();if(!$("#vIngreso").offsetParent)return;
+  e.preventDefault();if(!SB){msgLogin("El panel aún no está conectado a su base de datos propia. Estará listo muy pronto.");return;}if(!$("#vIngreso").offsetParent)return;
   const b=$("#bEntrar");b.disabled=true;b.textContent="Entrando…";msgLogin("");
   try{
     const j=await auth("token?grant_type=password",{email:$("#correo").value.trim(),password:$("#clave").value});

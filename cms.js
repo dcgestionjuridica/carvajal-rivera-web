@@ -2,8 +2,8 @@
    Lee lo que se cambia en el panel (/admin) y lo pone en la página.
    Si no hay conexión, la página se ve con su contenido original. */
 (function () {
-  var URL = "https://bopiajeyzystoaumishw.supabase.co";
-  var KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcGlhamV5enlzdG9hdW1pc2h3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA2OTQ5NzksImV4cCI6MjEwNjI3MDk3OX0.F4S0iiUhSYhLkE5x2cPAld75kKBcOcLrmTZGtmVs5F4";
+  var URL = ""; // base propia de la página: se configura cuando exista (totalmente aparte de la app)
+  var KEY = "";
   var H = { apikey: KEY, Authorization: "Bearer " + KEY };
   var CACHE = "cr_contenido_v1";
 
@@ -59,6 +59,7 @@
   }
 
   window.CR_CARGAR = function () {
+    if (!URL) return Promise.resolve({});
     var cache = leerCache();
     if (cache) aplicar(cache);
     var p1 = get("web_contenido?select=clave,valor").then(function (filas) {
@@ -79,6 +80,7 @@
   };
 
   window.CR_RESENA = function (r) {
+    if (!URL) return Promise.resolve();
     return fetch(URL + "/rest/v1/web_resenas", {
       method: "POST",
       headers: { apikey: KEY, Authorization: "Bearer " + KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
