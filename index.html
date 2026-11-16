@@ -18,7 +18,7 @@
 <meta content="cover" name="claude:viewport-fit-sides"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&amp;family=Outfit:wght@400;500;600;700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
-<link href="juego.css?v=20261116b" rel="stylesheet"/>
+<link href="juego.css?v=20261116d" rel="stylesheet"/>
 <style>
 [hidden]{display:none!important}
 img{max-width:100%}
@@ -597,10 +597,10 @@ section[id]{scroll-margin-top:72px}
 <section class="dark" id="juego">
 <canvas class="jg-red" aria-hidden="true"></canvas>
 <div class="wrap jg-franja">
-<div class="sec-head reveal"><span class="eyebrow"><i class="jg-vivo"></i><span data-e="juego_01">Juego · El Expediente</span></span><h2 data-e="juego_02">¿Usted resolvería <em>estos casos</em>?</h2><p class="lead" data-e="juego_03">Cinco expedientes de la vida diaria en Colombia, uno detrás de otro. Analice las pistas, marque las evidencias y dé su veredicto antes de que se acabe el tiempo. Si falla uno, vuelve a empezar.</p></div>
+<div class="sec-head reveal"><span class="eyebrow"><i class="jg-vivo"></i><span data-e="juego_01">Juego · El Expediente</span></span><h2 data-e="juego_02">¿Usted resolvería <em>estos casos</em>?</h2><p class="lead" data-e="juego_03">Casos de la vida diaria en Colombia: familia, laboral, tránsito, salud, insolvencia, consumidor y pensiones. Elija su nivel, analice las pistas y dé su veredicto antes de que se acabe el tiempo. Si falla uno, vuelve a empezar.</p></div>
 <div class="jg-lanza reveal">
 <div class="jg-escalera" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-<p data-e="juego_04">Resuelva los cinco seguidos y gane el título de <b>Abogado investigador con maestría</b>.</p>
+<p data-e="juego_04">Tres niveles: <b>básico</b> (5 casos), <b>intermedio</b> (10) y <b>experto</b> (20). Supere el experto y gane el título de <b>Abogado investigador con maestría</b>.</p>
 <button class="jg-jugar" type="button" data-jugar><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-e="juego_05">Iniciar el juego</span></button>
 <span class="jg-marca" hidden></span>
 </div>
@@ -973,6 +973,6 @@ window.CR_INICIAR=function(L){
   try{(window.CR_CARGAR?window.CR_CARGAR():Promise.resolve({})).then(ir,()=>ir({}))}catch(_){ir({})}
   setTimeout(()=>ir({}),4000);})();
 </script>
-<script src="juego.js?v=20261116b"></script>
+<script src="juego.js?v=20261116d"></script>
 </body>
 </html>

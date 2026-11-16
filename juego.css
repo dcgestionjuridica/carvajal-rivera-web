@@ -260,3 +260,31 @@ html.jg-bloq,html.jg-bloq body{overflow:hidden}
   .jg-cifras{grid-template-columns:1fr 1fr 1fr}
   .jg-cifras b{font-size:1.25rem}
 }
+
+/* selección de nivel */
+.jg-niveles{display:grid;justify-items:center;text-align:center;gap:14px;padding:16px 0 6px}
+.jg-niveles h3{font:800 clamp(1.5rem,3vw,2.2rem)/1.1 var(--f-head);color:#fff;margin:0}
+.jg-niveles>p{margin:0;color:var(--jg-mut);max-width:56ch}
+.jg-nivs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:100%;margin-top:10px}
+.jg-m .jg-niv{position:relative;overflow:hidden;display:grid;gap:8px;align-content:start;text-align:left;padding:20px;border-radius:12px;border:1px solid var(--jg-line);background:rgba(19,42,79,.85);color:#eef2f8;transition:transform .2s,border-color .2s,box-shadow .2s}
+.jg-m .jg-niv:hover{transform:translateY(-4px);border-color:var(--jg-gold);box-shadow:0 18px 40px -20px rgba(201,162,77,.8)}
+.jg-m .jg-niv::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(230,198,127,.12) 50%,transparent 65%);transform:translateX(-100%);transition:transform .6s}
+.jg-m .jg-niv:hover::after{transform:translateX(100%)}
+.jg-barras{display:flex;gap:4px;align-items:flex-end;height:18px}
+.jg-barras i{width:7px;border-radius:2px;background:var(--jg-line2)}
+.jg-barras i:nth-child(1){height:8px}.jg-barras i:nth-child(2){height:13px}.jg-barras i:nth-child(3){height:18px}
+.jg-barras i.on{background:var(--jg-gold2);box-shadow:0 0 8px rgba(230,198,127,.5)}
+.jg-niv b{font:800 1.4rem/1 var(--f-head);color:#fff}
+.jg-cant{font:600 .74rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--jg-gold2)}
+.jg-desc{font-size:.88rem;color:var(--jg-mut);line-height:1.4}
+.jg-tit{font:500 .72rem/1.35 var(--f-mono);color:var(--jg-olive2);border-top:1px dashed var(--jg-line2);padding-top:8px;margin-top:2px}
+.jg-mm{font:500 .7rem/1 var(--f-mono);color:var(--jg-gold2)}
+@media (max-width:760px){.jg-nivs{grid-template-columns:1fr}}
+
+/* barra de avance compacta para 10 y 20 casos */
+.jg-progreso.muchos{gap:3px;align-items:center}
+.jg-progreso.muchos .jg-paso{height:10px;padding:0;font-size:0;border-radius:3px;gap:0}
+.jg-progreso.muchos .jg-paso svg{display:none}
+.jg-progreso.muchos .jg-paso.ya{background:var(--jg-olive2)}
+.jg-progreso.muchos .jg-paso.ahora{background:var(--jg-gold2);box-shadow:0 0 8px rgba(230,198,127,.6)}
+.jg-progreso.muchos .jg-paso.cayo{background:var(--jg-bad)}
