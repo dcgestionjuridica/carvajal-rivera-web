@@ -2,8 +2,8 @@
    Lee lo que se cambia en el panel (/admin) y lo pone en la página.
    Si no hay conexión, la página se ve con su contenido original. */
 (function () {
-  var URL = ""; // base propia de la página: se configura cuando exista (totalmente aparte de la app)
-  var KEY = "";
+  var URL = "https://sivyucfhpqxhvaavfgpf.supabase.co"; // base propia de la página (cuenta de la firma, aparte de la app)
+  var KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpdnl1Y2ZocHF4aHZhYXZmZ3BmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ3NDg5MTAsImV4cCI6MjExMDMyNDkxMH0.9XbxWiCaECnqhJOVeGb4r-uVPrlezDwx5xaw7YhR0KY";
   var H = { apikey: KEY, Authorization: "Bearer " + KEY };
   var CACHE = "cr_contenido_v1";
 
