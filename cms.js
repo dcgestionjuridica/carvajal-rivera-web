@@ -26,10 +26,22 @@
   function aplicar(c) {
     if (!c) return;
     var tx = c.textos || {}, im = c.imagenes || {};
+    var d = (c.listas || {}).datos || {};
+    // Los datos de contacto también cambian el número y el correo que se ven escritos en la página
+    var dig = String(d.whatsapp || "").replace(/\D/g, "").slice(-10);
+    var cambios = [];
+    if (dig.length === 10) cambios.push(["314 613 1086", dig.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3")]);
+    if (d.correo) cambios.push(["abg.carvajalrivera@gmail.com", d.correo]);
     document.querySelectorAll("[data-e]").forEach(function (el) {
       var k = el.getAttribute("data-e");
       if (el.tagName === "IMG") { if (im[k]) el.src = im[k]; return; }
-      if (tx[k] == null) return;
+      if (!el.hasAttribute("data-orig")) el.setAttribute("data-orig", el.innerHTML);
+      if (tx[k] == null) {
+        var o = el.getAttribute("data-orig"), h = o;
+        cambios.forEach(function (r) { h = h.split(r[0]).join(r[1]); });
+        if (h !== el.innerHTML && !el.hasAttribute("data-count")) el.innerHTML = h;
+        return;
+      }
       if (el.hasAttribute("data-count")) {
         var t = String(tx[k]).replace(/<[^>]*>/g, ""), n = t.match(/\d+/);
         if (n) { el.setAttribute("data-count", n[0]); el.setAttribute("data-suffix", t.replace(/[\d\s]/g, "")); }
@@ -37,7 +49,6 @@
       }
       el.innerHTML = tx[k];
     });
-    var d = (c.listas || {}).datos || {};
     var cps = document.querySelectorAll(".cp");
     if (d.direccion_completa && cps[0]) cps[0].setAttribute("data-copy", d.direccion_completa);
     if (d.whatsapp && cps[1]) cps[1].setAttribute("data-copy", String(d.whatsapp).replace(/\D/g, ""));

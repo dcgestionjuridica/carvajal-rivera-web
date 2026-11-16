@@ -368,7 +368,7 @@ function editorListas(sec){
   const L=k=>lista(k);let h="";
   if(sec==="datos"){
     const d={...BASE.listas.datos,...(L("datos")||{})};
-    h+=`<div class="bloque"><h3>Datos que se usan en toda la página</h3><p class="nota">Estos datos alimentan el botón de WhatsApp, los botones de copiar, el mapa, las redes y los formularios. Los textos visibles de cada sección se cambian en su propia sección.</p><div class="grid2">${DATOS_CAMPOS.map(c=>`<label>${c[1]}${inp("datos."+c[0],d[c[0]]??"",c[2])}</label>`).join("")}</div></div>`;
+    h+=`<div class="bloque"><h3>Datos que se usan en toda la página</h3><p class="nota">Estos datos alimentan el botón de WhatsApp, los botones de copiar, el mapa, las redes y los formularios. Al cambiar el WhatsApp o el correo, también cambian en todos los lugares donde aparecen escritos en la página. La dirección y el horario escritos se cambian en «Contacto» y en «Pie de página».</p><div class="grid2">${DATOS_CAMPOS.map(c=>`<label>${c[1]}${inp("datos."+c[0],d[c[0]]??"",c[2])}</label>`).join("")}</div></div>`;
   }
   if(sec==="portada"){
     h+=`<div class="bloque"><h3>Palabras que cambian en el título</h3><p class="nota">Una por línea. Aparecen después de «Protegemos».</p>${area("palabras",(L("palabras")||[]).join("\n"),5)}</div>`;
