@@ -353,7 +353,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .skel{height:8px;border-radius:99px;background:linear-gradient(90deg,#eceef2 25%,#f6f7f9 50%,#eceef2 75%);background-size:200% 100%;animation:sk 1.6s infinite}
 @keyframes sk{to{background-position:-200% 0}}
 .wait{display:flex;gap:8px;flex-wrap:wrap}
-.wait input{flex:1;min-width:200px}
+.wait input:not([type=checkbox]){flex:1;min-width:200px}
 @media (max-width:900px){.soon{grid-template-columns:1fr}}
 @media (max-width:520px){.courses{grid-template-columns:1fr}}
 
@@ -383,7 +383,7 @@ form.card{background:var(--card);border:1px solid var(--line);border-radius:18px
 @media (max-width:560px){.row2{grid-template-columns:1fr}}
 .topics{display:flex;gap:6px;flex-wrap:wrap}
 .consent{display:grid;grid-template-columns:20px 1fr;gap:10px;font-weight:400;font-size:.82rem;color:var(--mute)}
-.consent input{width:18px;height:18px;margin-top:2px;padding:0}
+.consent input{width:18px;height:18px;min-width:0;flex:none;margin:2px 0 0;padding:0;accent-color:var(--ink)}
 .sent{background:var(--ok-bg);color:#0f5136;border-radius:10px;padding:12px 14px;font-size:.9rem}
 @media (max-width:900px){.contact{grid-template-columns:1fr}}
 
