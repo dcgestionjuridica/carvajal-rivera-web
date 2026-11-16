@@ -18,6 +18,7 @@
 <meta content="cover" name="claude:viewport-fit-sides"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&amp;family=Outfit:wght@400;500;600;700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="juego.css?v=20261116b" rel="stylesheet"/>
 <style>
 [hidden]{display:none!important}
 img{max-width:100%}
@@ -432,7 +433,7 @@ section[id]{scroll-margin-top:72px}
 <div class="wrap">
 <a class="brand" href="#inicio"><img alt="Logo CR" data-e="barra_01" src="img/logo_cr.png"/><span><b data-e="barra_02">Carvajal &amp; Rivera</b><small data-e="barra_03">Abogados Asociados</small></span></a>
 <nav aria-label="Secciones" class="menu">
-<a data-e="barra_04" href="#nosotros">Nosotros</a><a data-e="barra_05" href="#areas">Áreas</a><a data-e="barra_06" href="#insolvencia">Insolvencia</a><a data-e="barra_07" href="#embargos">Embargos</a><a data-e="barra_08" href="#resenas">Reseñas</a><a data-e="barra_09" href="#peticiones">Derechos de petición</a><a data-e="barra_10" href="#cursos">Cursos</a><a data-e="barra_11" href="#contacto">Contacto</a>
+<a data-e="barra_04" href="#nosotros">Nosotros</a><a data-e="barra_05" href="#areas">Áreas</a><a data-e="barra_06" href="#insolvencia">Insolvencia</a><a data-e="barra_07" href="#embargos">Embargos</a><a data-e="barra_90" href="#juego">Juego</a><a data-e="barra_08" href="#resenas">Reseñas</a><a data-e="barra_09" href="#peticiones">Derechos de petición</a><a data-e="barra_10" href="#cursos">Cursos</a><a data-e="barra_11" href="#contacto">Contacto</a>
 </nav>
 <div class="status"><span class="dot" id="dot"></span><span id="estado">Hora de Colombia</span></div>
     <a class="adm" href="admin/" rel="nofollow" title="Administración" aria-label="Administración"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Administración</span></a>
@@ -440,7 +441,7 @@ section[id]{scroll-margin-top:72px}
 </div>
 </header>
 <nav aria-label="Menú" class="drawer" id="drawer">
-<a data-e="menu_movil_01" href="#nosotros">Nosotros</a><a data-e="menu_movil_02" href="#areas">Áreas del derecho</a><a data-e="menu_movil_03" href="#insolvencia">¿Aplico a insolvencia?</a><a data-e="menu_movil_04" href="#embargos">Calculadora de embargos</a><a data-e="menu_movil_05" href="#resenas">Reseñas</a><a data-e="menu_movil_06" href="#peticiones">Derechos de petición</a><a data-e="menu_movil_07" href="#cursos">Cursos y diplomados</a><a data-e="menu_movil_08" href="#contacto">Contacto</a>
+<a data-e="menu_movil_01" href="#nosotros">Nosotros</a><a data-e="menu_movil_02" href="#areas">Áreas del derecho</a><a data-e="menu_movil_03" href="#insolvencia">¿Aplico a insolvencia?</a><a data-e="menu_movil_04" href="#embargos">Calculadora de embargos</a><a data-e="menu_movil_90" href="#juego">Juego: El Expediente</a><a data-e="menu_movil_05" href="#resenas">Reseñas</a><a data-e="menu_movil_06" href="#peticiones">Derechos de petición</a><a data-e="menu_movil_07" href="#cursos">Cursos y diplomados</a><a data-e="menu_movil_08" href="#contacto">Contacto</a>
 <a href="admin/" rel="nofollow">Administración</a></nav>
 <main id="inicio">
 <!-- PORTADA -->
@@ -589,6 +590,20 @@ section[id]{scroll-margin-top:72px}
 <div class="rule"><span class="pct" data-e="embargos_28">50 %</span><b data-e="embargos_29">Cooperativas</b><span data-e="embargos_30">Pueden embargar hasta la mitad del salario, incluido el mínimo (art. 156 CST).</span></div>
 <div class="rule"><span class="pct" data-e="embargos_32">0 %</span><b data-e="embargos_33">Pensiones</b><span data-e="embargos_34">Son inembargables, salvo alimentos y cooperativas hasta el 50 % (art. 134 Ley 100 de 1993; art. 344 CST).</span></div>
 </div>
+<p class="jg-invita reveal"><a href="#juego" onclick="if(window.CR_JUEGO){window.CR_JUEGO();return false}" data-e="embargos_90">¿Se atreve con un caso real? Juegue <b>El Expediente</b> →</a></p>
+</div>
+</section>
+<!-- JUEGO -->
+<section class="dark" id="juego">
+<canvas class="jg-red" aria-hidden="true"></canvas>
+<div class="wrap jg-franja">
+<div class="sec-head reveal"><span class="eyebrow"><i class="jg-vivo"></i><span data-e="juego_01">Juego · El Expediente</span></span><h2 data-e="juego_02">¿Usted resolvería <em>estos casos</em>?</h2><p class="lead" data-e="juego_03">Cinco expedientes de la vida diaria en Colombia, uno detrás de otro. Analice las pistas, marque las evidencias y dé su veredicto antes de que se acabe el tiempo. Si falla uno, vuelve a empezar.</p></div>
+<div class="jg-lanza reveal">
+<div class="jg-escalera" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<p data-e="juego_04">Resuelva los cinco seguidos y gane el título de <b>Abogado investigador con maestría</b>.</p>
+<button class="jg-jugar" type="button" data-jugar><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-e="juego_05">Iniciar el juego</span></button>
+<span class="jg-marca" hidden></span>
+</div>
 </div>
 </section>
 <!-- RESEÑAS -->
@@ -717,7 +732,7 @@ window.CR_INICIAR=function(L){
   const fechaLarga=iso=>new Date(iso+"T12:00:00").toLocaleDateString("es-CO",{day:"numeric",month:"long",year:"numeric"});
   const diasEntre=(a,b)=>Math.round((Date.parse(b+"T00:00:00Z")-Date.parse(a+"T00:00:00Z"))/864e5);
   const menos=d=>new Date(Date.parse(hoyCO()+"T00:00:00Z")-d*864e5).toISOString().slice(0,10);
-  const waLink=t=>"https://wa.me/"+WA+"?text="+encodeURIComponent(t);
+  const waLink=t=>"https://wa.me/"+WA+"?text="+encodeURIComponent(t); window.CR_WALINK=waLink;
   const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
   function seg(id,cb){const b=$$("#"+id+" button");b.forEach(x=>x.onclick=()=>{b.forEach(y=>y.setAttribute("aria-pressed",y===x));cb()});return()=>b.find(x=>x.getAttribute("aria-pressed")==="true").dataset.v;}
   $("#anio").textContent=new Date().toLocaleDateString("en-CA",{timeZone:TZ}).slice(0,4);
@@ -958,5 +973,6 @@ window.CR_INICIAR=function(L){
   try{(window.CR_CARGAR?window.CR_CARGAR():Promise.resolve({})).then(ir,()=>ir({}))}catch(_){ir({})}
   setTimeout(()=>ir({}),4000);})();
 </script>
+<script src="juego.js?v=20261116b"></script>
 </body>
 </html>
