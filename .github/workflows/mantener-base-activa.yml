@@ -1,0 +1,33 @@
+# Mantiene activa la base de datos del sitio (Supabase gratuito se pausa tras 7 días sin uso).
+# Cada 3 días hace UNA consulta de solo lectura. No escribe ni borra nada.
+# Usa la misma llave pública que ya usa la página (cms.js).
+name: Mantener activa la base del sitio
+
+on:
+  schedule:
+    - cron: "17 13 */3 * *"   # cada 3 días, 8:17 a. m. hora de Colombia
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  consultar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Consulta de solo lectura
+        env:
+          URL: https://sivyucfhpqxhvaavfgpf.supabase.co
+          KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpdnl1Y2ZocHF4aHZhYXZmZ3BmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ3NDg5MTAsImV4cCI6MjExMDMyNDkxMH0.9XbxWiCaECnqhJOVeGb4r-uVPrlezDwx5xaw7YhR0KY
+        run: |
+          for i in 1 2 3; do
+            code=$(curl -s -o respuesta.json -w "%{http_code}" \
+              -H "apikey: $KEY" -H "Authorization: Bearer $KEY" \
+              "$URL/rest/v1/web_contenido?select=clave&limit=1")
+            echo "Intento $i: respuesta $code"
+            if [ "$code" = "200" ]; then echo "Base activa."; exit 0; fi
+            sleep 20
+          done
+          echo "La base no respondió. Revise Supabase (puede estar pausada)."
+          exit 1
